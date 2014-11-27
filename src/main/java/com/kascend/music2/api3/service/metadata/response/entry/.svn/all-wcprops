@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/k004/!svn/ver/2965/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry
+END
+New_SongEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/k004/!svn/ver/1770/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SongEntry.java
+END
+New_ArtistEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/k004/!svn/ver/2193/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_ArtistEntry.java
+END
+New_BillBoardGroupEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/k004/!svn/ver/2959/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_BillBoardGroupEntry.java
+END
+New_UserMvListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/k004/!svn/ver/1292/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserMvListEntry.java
+END
+New_ArtistartEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/k004/!svn/ver/1343/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_ArtistartEntry.java
+END
+New_UserMvEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/k004/!svn/ver/1287/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserMvEntry.java
+END
+New_GetSongInfoEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/k004/!svn/ver/1997/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_GetSongInfoEntry.java
+END
+New_MtvUriEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/k004/!svn/ver/2959/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MtvUriEntry.java
+END
+New_SubBillboardListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/k004/!svn/ver/1665/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SubBillboardListEntry.java
+END
+New_UserSongListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/k004/!svn/ver/2376/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserSongListEntry.java
+END
+New_MvUriEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/k004/!svn/ver/1727/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MvUriEntry.java
+END
+New_MtvEntryList.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/k004/!svn/ver/1614/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MtvEntryList.java
+END
+New_SubBillboardEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/k004/!svn/ver/1294/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SubBillboardEntry.java
+END
+New_UserSongEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/k004/!svn/ver/2726/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserSongEntry.java
+END
+New_MtvEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/k004/!svn/ver/1487/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MtvEntry.java
+END
+New_MvListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/k004/!svn/ver/1614/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MvListEntry.java
+END
+New_UserEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/k004/!svn/ver/2578/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserEntry.java
+END
+New_KeyWordListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/k004/!svn/ver/1343/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_KeyWordListEntry.java
+END
+New_LyricEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/k004/!svn/ver/1365/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_LyricEntry.java
+END
+New_GetMtvInfoEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/k004/!svn/ver/2959/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_GetMtvInfoEntry.java
+END
+New_MvEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/k004/!svn/ver/1487/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_MvEntry.java
+END
+New_SongUriListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/k004/!svn/ver/1824/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SongUriListEntry.java
+END
+New_BillboardListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/k004/!svn/ver/1126/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_BillboardListEntry.java
+END
+New_SongUriEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/k004/!svn/ver/2372/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SongUriEntry.java
+END
+New_BillboardEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/k004/!svn/ver/1126/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_BillboardEntry.java
+END
+New_AlbumListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/k004/!svn/ver/1614/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_AlbumListEntry.java
+END
+New_UserPlaylistListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/k004/!svn/ver/1396/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserPlaylistListEntry.java
+END
+New_AlbumEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/k004/!svn/ver/2937/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_AlbumEntry.java
+END
+New_UserPlaylistEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/k004/!svn/ver/1396/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_UserPlaylistEntry.java
+END
+New_ArtistListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/k004/!svn/ver/1614/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_ArtistListEntry.java
+END
+New_SongListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/k004/!svn/ver/1614/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_SongListEntry.java
+END
+New_BillBoardGroupListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/k004/!svn/ver/2959/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/response/entry/New_BillBoardGroupListEntry.java
+END

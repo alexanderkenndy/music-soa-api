@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/k004/!svn/ver/3148/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/dao
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/k004/!svn/ver/2575/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/dao/UserDao.java
+END
+MetadataDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/k004/!svn/ver/3146/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/dao/MetadataDao.java
+END
+AbstractDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/k004/!svn/ver/1000/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/dao/AbstractDao.java
+END
+SocialDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/k004/!svn/ver/3148/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/dao/SocialDao.java
+END

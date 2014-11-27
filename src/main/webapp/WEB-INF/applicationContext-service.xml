@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+	<bean id="auth" class="com.kascend.music2.api3.service.user.UserServiceImpl"
+		parent="baseService" scope="singleton">
+			<property name="cacheService">
+				<ref bean="cacheService" />
+			 </property>
+			 <property name="logCommitExecutor">
+				<ref bean="logCommitExecutor" />
+			 </property>
+			 <property name="userDao">
+				<ref bean="userDao" />
+			</property>
+			<property name="sosHelper">
+				<ref bean="sosHelper" />
+			</property>
+	</bean>
+	
+		<bean id="tp" class="com.kascend.music2.api3.service.metadata.impl.CacheMetadataServiceImpl"
+		 scope="singleton">
+		  
+			 <property name="mmsHelper">
+				<ref bean="mmsHelper" />
+			 </property>
+			 <property name="logService">
+				<ref bean="logService" />
+			 </property>
+			  <property name="cacheService">
+				<ref bean="cacheService" />
+			 </property>
+		</bean>
+		<bean id="tpnocache" class="com.kascend.music2.api3.service.metadata.impl.MetadataServiceImpl"
+		 scope="singleton">
+		  
+			 <property name="mmsHelper">
+				<ref bean="mmsHelper" />
+			 </property>
+			 <property name="logService">
+				<ref bean="logService" />
+			 </property>
+		</bean>
+		<bean id="logService" class="com.kascend.music2.api3.service.log.MetadataLogService"
+		parent="baseService" scope="singleton">
+			<property name="logCommitExecutor">
+				<ref bean="logCommitExecutor" />
+			 </property>
+		</bean>
+		<bean id="cacheService" class="com.kascend.music2.api3.cache.OsCacheService"
+		 scope="singleton">
+			 <property name="osCache">
+				<ref bean="osCache" />
+			 </property>
+			 <property name="refreshPeriod">
+				<value>3600</value>
+			 </property>
+		</bean>
+		<bean id="osCache" class="com.kascend.music2.api3.cache.OsCacheAdministratorExtended">
+			<property name="oscacheConfig">
+				<value>/WEB-INF/oscache.properties</value>
+			</property>
+		</bean>
+	<bean id="mmsHelper" class="com.kascend.music2.api3.service.metadata.impl.MetadataServiceHelper"
+		parent="baseService" scope="singleton">
+		<property name="socialDao">
+			<ref bean="socialDao" />
+		</property>
+		<property name="jluceneSearch">
+			<ref bean="jluceneSearch" />
+		</property>
+		
+		<property name="sosHelper">
+			<ref bean="sosHelper" />
+		</property>
+		<property name="metadataDao">
+			<ref bean="metadataDao" />
+		</property>
+		<property name="reglist">
+			<list>
+				<value><![CDATA[\(.*?\)|\[.*?\]|\【.*?\】|\{.*?\}]]></value>
+				<value><![CDATA[\-.*?]]></value>
+				<value><![CDATA[\@.*?]]></value>
+				<value><![CDATA[\#.*?]]></value>
+				<value><![CDATA[\%.*?]]></value>
+				<value><![CDATA[\^.*?]]></value>
+				<value><![CDATA[\&.*?]]></value>
+				<value><![CDATA[\*.*?]]></value>
+				<value><![CDATA[\+.*?]]></value>
+				<value><![CDATA[\/.*?]]></value>
+				<value><![CDATA[\\.*?]]></value>
+				<value><![CDATA[\:.*?]]></value>
+				<value><![CDATA[\;.*?]]></value>
+				<value><![CDATA[\".*?]]></value>
+				<value><![CDATA[\'.*?]]></value>
+				<value><![CDATA[\|.*?]]></value>
+				<value><![CDATA[\~.*?]]></value>
+				<value><![CDATA[\!.*?]]></value>
+				<value><![CDATA[\$.*?]]></value>
+				<value><![CDATA[w{3}\.(\w)+\.(com|cn|net|org)]]></value>
+				<value><![CDATA[\..*?]]></value>
+				<value><![CDATA[\,.*?]]></value>
+			</list>
+		</property>
+	</bean>
+	<!--  
+	<bean id="ipSecurityService"
+		class="com.kascend.music2.api3.service.security.IpSecurityService"
+		parent="baseService" scope="singleton" init-method="init" depends-on="configService"/>
+		-->
+		<bean id="userSecurityService"
+			class="com.kascend.music2.api3.service.security.UserSecurityService"
+			parent="baseService" scope="singleton" init-method="init" depends-on="configService"/>
+			
+		<bean id="metadataDao" class="com.kascend.music2.api3.dao.MetadataDao"  scope="singleton">
+			<property name="dao" ref="dao"/>
+		</bean>
+		
+		<bean id="logCommitExecutor" class="com.kascend.music2.api3.service.log.LogCommitExecutor"  scope="singleton" init-method="init">
+			<property name="dao" ref="dao"/>
+			<property name="maxThreads" value="${log.maxThreads}"/>
+		</bean>
+		
+		<bean id="userDao" class="com.kascend.music2.api3.dao.UserDao"  scope="singleton">
+			<property name="dao" ref="dao"/>
+		</bean>
+		
+	<bean id="jluceneSearch" class="com.kascend.jlucene.search.JLuceneSearchServerImpl"
+		 scope="singleton">
+		<property name="solrService" ref="solrService" />
+	</bean>
+	<bean id="solrService" class="com.kascend.osm.solr.sdk.KASolrService" scope="singleton">
+	</bean>
+</beans>

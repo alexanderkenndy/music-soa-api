@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="user">
+
+	<typeAlias alias="User" type="com.kascend.music2.api3.entity.User"/>
+	
+	<typeAlias alias="ClientVersion" type="com.kascend.music2.api3.entity.ClientVersion"/>
+	
+	<select id="getUidByToken" parameterClass="java.lang.String" resultClass="java.lang.Long">
+        select uid from user_session as u where u.token=#token#;
+    </select>
+    
+    <select id="getUserByToken" parameterClass="java.lang.String" resultClass="User">
+        select u.uid, u.status as status from user_session us join user u on us.uid=u.uid where us.token=#token#;
+    </select>
+    
+    <select id="getToken" parameterClass="java.lang.Long" resultClass="java.lang.String">
+       select token from user_session where uid=#uid#
+    </select>
+    
+    <insert id="insertUserToken" parameterClass="java.util.Map">
+        insert  user_session(uid,token) values(#uid#,#token#);
+    </insert>
+    
+    <update id="updateUserToken" parameterClass="java.util.Map">
+        update  user_session set token=#token# where uid=#uid#;
+    </update>
+    
+    <select id="getUserUid" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+      select uid from user where uid=#uid#;
+    </select>
+    
+    <select id="getUidByUsUid" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+      select uid from user where us_uid=#usUid#;
+    </select>
+    
+    <insert id="insertUser" parameterClass="User">
+        insert user(uid
+        ,name
+        , nickname
+        ,last_login_time
+        ,create_time
+        ,register_ip
+        , head_icon
+        , status
+        , age
+        , sex
+        , us_uid
+        , signature
+        , email
+        , phone
+        )  values(#uid#
+        ,#name#
+        , #nickname#
+        , sysdate()
+        , sysdate()
+        , #registerIp#
+        , #headIcon#
+        , #status#
+        , #age#
+        , #sex#
+        ,#usUid#
+        ,#signature#
+        ,#email#
+        ,#phone#
+        );
+        <selectKey resultClass="long" keyProperty="uid">
+  			SELECT LAST_INSERT_ID() AS uid
+  		</selectKey>
+    </insert>
+    
+    <update id="updateUser" parameterClass="User">
+        update  user  set 
+        name=#name#
+        , last_login_time= sysdate()
+        , name= #name#
+        , nickname=#nickname#
+        , head_icon=#headIcon#
+        , status=#status#
+        , age=#age#
+        , sex=#sex#
+        , signature=#signature#
+         , email=#email#
+        , phone=#phone#
+         where uid=#uid#;
+    </update>
+    
+    <insert id="insertClientVersion" parameterClass="ClientVersion">
+        insert client_version(appid
+        ,version
+        ,create_time
+        )  values(#appid#
+        ,#version#
+        , sysdate()
+        );
+        <selectKey resultClass="int" keyProperty="verid">
+  			SELECT LAST_INSERT_ID() AS verid
+  		</selectKey>
+    </insert>
+    
+    <select id="getClientVerid" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+      select verid from client_version where version=#version# and appid=#appid# limit 1;
+    </select>
+</sqlMap>

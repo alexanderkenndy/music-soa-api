@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/k004/!svn/ver/2971/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/security
+END
+IpSecurityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/k004/!svn/ver/2970/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/security/IpSecurityService.java
+END
+UserSecurityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/k004/!svn/ver/2970/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/security/UserSecurityService.java
+END
+SecurityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/k004/!svn/ver/2971/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/security/SecurityService.java
+END

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="KAS_LIB/quartz/quartz-all/1.6.5/quartz-all-1.6.5.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/junit/junit/3.8.1/junit-3.8.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/mia/e2e-download-sdk/1.1.0/e2e-download-sdk-1.1.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/mia/e2e-userserver-sdk/2.5/e2e-userserver-sdk-2.5.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/springframework/spring/2.5.1/spring-2.5.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-beanutils/commons-beanutils/1.6/commons-beanutils-1.6.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-codec/commons-codec/1.3/commons-codec-1.3.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-collections/commons-collections/3.2/commons-collections-3.2.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-lang/commons-lang/2.3/commons-lang-2.3.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-dbcp/commons-dbcp/1.2.2/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-email/commons-email/1.1/commons-email-1.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-io/commons-io/1.4/commons-io-1.4.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-pool/commons-pool/1.4/commons-pool-1.4.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/cobra/cobra/0.96/cobra-0.96.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/javamail/javamail/1.3.2/javamail-1.3.2.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/apache/ibatis/ibatis-sqlmap/2.3.4.726/ibatis-sqlmap-2.3.4.726.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/jakarta-oro/jakarta-oro/2.0.7/jakarta-oro-2.0.7.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/mysql-connector-java/mysql-connector-java/5.0.7-bin/mysql-connector-java-5.0.7-bin.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/kascend-commons/1.0.1/kascend-commons-1.0.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/kascend-framework-commons/1.0.0/kascend-framework-commons-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/kascend-interfaceframework/1.0.0/kascend-interfaceframework-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/kascend-ipseeker/1.0.0/kascend-ipseeker-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/mia/mia-interfaceframework/1.0.0/mia-interfaceframework-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/com/opensymphony/oscache/2.4.1/oscache-2.4.1.jar" sourcepath="/KAS_LIB/com/opensymphony/oscache/2.4.1/oscache-2.4.1.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/apache/solr/apache-solr-solrj/3.5.0/apache-solr-solrj-3.5.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/apache/solr/org.apache.solr/1.0/org.apache.solr-1.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/org/apache/solr-core/org.apache.solr-core/1.0/org.apache.solr-core-1.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/music2-jlucene-native/1.0.0/music2-jlucene-native-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/music2-recommend-sdk/1.0.0/music2-recommend-sdk-1.0.0.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/mia/e2e-socialservice/1.1.3/e2e-socialservice-1.1.3.jar"/>
+	<classpathentry kind="var" path="KAS_LIB/kascend/kascend-jlucene/1.1.7/kascend-jlucene-1.1.7.jar"/>
+	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
+</classpath>

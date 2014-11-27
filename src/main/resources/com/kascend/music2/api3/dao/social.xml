@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="social">
+
+	<typeAlias alias="AttentionUsersInfo" type="com.kascend.music2.api3.service.social.info.AttentionUsersInfo"/>
+	
+	<typeAlias alias="FollowArtistInfo" type="com.kascend.music2.api3.service.social.info.FollowArtistInfo"/>
+	
+	<typeAlias alias="SearchUserInfo" type="com.kascend.music2.api3.service.social.info.SearchUserInfo"/>
+	
+	<typeAlias alias="GetPlaylistInfo" type="com.kascend.music2.api3.service.metadata.info.GetPlaylistInfo"/>
+	
+	<typeAlias alias="LeaveMessageInfo" type="com.kascend.music2.api3.service.social.info.LeaveMessageInfo"/>
+	
+	<typeAlias alias="RelevanceUidInfo" type="com.kascend.music2.api3.service.social.info.RelevanceUidInfo"/>
+	
+	<typeAlias alias="SnsItemsInfo" type="com.kascend.music2.api3.service.social.info.SnsItemsInfo"/>
+	
+	<typeAlias alias="DeletePlaylistSongInfo" type="com.kascend.music2.api3.service.social.info.DeletePlaylistSongInfo"/>
+	
+	<typeAlias alias="RecommendUserInfo" type="com.kascend.music2.api3.service.social.info.RecommendUserInfo"/>
+	
+	<typeAlias alias="FollowUserInfo" type="com.kascend.music2.api3.service.social.info.FollowUserInfo"/>
+	
+	<typeAlias alias="GetPlaylistsOfUserInfo" type="com.kascend.music2.api3.service.social.info.GetPlaylistsOfUserInfo"/>
+	
+	<typeAlias alias="ArtistFollowStatusInfo" type="com.kascend.music2.api3.service.social.info.ArtistFollowStatusInfo"/>
+	
+	<typeAlias alias="UserFollowStatusInfo" type="com.kascend.music2.api3.service.social.info.UserFollowStatusInfo"/>
+	
+	<typeAlias alias="LikeInfo" type="com.kascend.music2.api3.service.social.info.LikeInfo"/>
+	
+	<typeAlias alias="GetUserAlbumsInfo" type="com.kascend.music2.api3.service.social.info.GetUserAlbumsInfo"/>
+	
+	
+	<typeAlias alias="StatInfo" type="com.kascend.music2.api3.service.metadata.info.StatInfo"/>
+	
+	<typeAlias alias="ShareInfo" type="com.kascend.music2.api3.service.social.info.ShareInfo"/>
+	
+	<typeAlias alias="UserInfo" type="com.kascend.music2.api3.service.social.info.UserInfo"/>
+	
+	<typeAlias alias="GetUserAlbumsOfArtistInfo" type="com.kascend.music2.api3.service.social.info.GetUserAlbumsOfArtistInfo"/>
+	
+	<typeAlias alias="GetUserFansInfo" type="com.kascend.music2.api3.service.social.info.GetUserFansInfo"/>
+		
+	<typeAlias alias="UpdateUserInfo" type="com.kascend.music2.api3.service.social.info.UpdateUserInfo"/>
+	
+	<typeAlias alias="userMetadata" type="com.kascend.music2.api3.entity.UserMetadata"/>
+	
+	<typeAlias alias="CommentInfo" type="com.kascend.music2.api3.service.social.info.CommentInfo"/>
+	<typeAlias alias="MyAttentionInfo" type="com.kascend.music2.api3.service.social.info.MyAttentionInfo"/>
+	
+	<typeAlias alias="GetCommentsOfItemInfo" type="com.kascend.music2.api3.service.social.info.GetCommentsOfItemInfo"/>
+	
+	<typeAlias alias="MyAttentionAlbumInfo" type="com.kascend.music2.api3.service.social.info.MyAttentionAlbumInfo"/>
+	
+	<typeAlias alias="GetUserArtistInfo" type="com.kascend.music2.api3.service.social.info.GetUserArtistInfo"/>
+	
+    <typeAlias alias="UserSns" type="com.kascend.music2.api3.entity.UserSns"/>
+    
+    <typeAlias alias="UserActivityLog" type="com.kascend.music2.api3.entity.UserActivityLog"/>
+    
+    <typeAlias alias="UserPopularityLog" type="com.kascend.music2.api3.entity.UserPopularityLog"/>
+    
+    <typeAlias alias="DiscoveryInfo" type="com.kascend.music2.api3.service.metadata.info.DiscoveryInfo"/>
+    
+    <resultMap class="com.kascend.music2.api3.entity.UserMessage" id="userMessage">
+		<result property="messagetId" column="message_id"/>
+		<result property="uid" column="uid"/>
+		<result property="fromUid" column="from_uid"/>
+		<result property="createTime" column="create_time"/>
+		<result property="status" column="status"/>
+		<result property="isReply" column="is_reply"/>
+		<result property="replyMessageId" column="reply_message_id"/>
+		<result property="messageContent" column="content"/>
+	</resultMap>
+    
+	<resultMap class="com.kascend.music2.api3.entity.UserSns" id="userSns">
+		<result property="snsId" column="sns_id"/>
+		<result property="uid" column="uid"/>
+		<result property="snsSite" column="sns_site"/>
+		<result property="snsUid" column="sns_uid"/>
+	</resultMap>
+	
+	<resultMap id="userMv" class="com.kascend.music2.api3.entity.UserMv" >
+    	 <result property="songId" column="song_id" />
+    	 <result property="mvId" column="mv_id" />
+    	 <result property="mvTitle" column="mv_title" />
+    	 <result property="artistName" column="artist_name" />
+    	 <result property="artistId" column="artist_id" />
+    	 <result property="duration" column="duration" />
+    	 <result property="mvThumb" column="mv_thumb" />
+    </resultMap>
+	
+	<resultMap class="com.kascend.music2.api3.entity.UserActivityLog" id="userActivityLog">
+		<result property="id" column="id"/>
+		<result property="uid" column="uid"/>
+		<result property="activityType" column="activity_type"/>
+		<result property="activity" column="activity"/>
+	</resultMap>
+	
+	<resultMap class="com.kascend.music2.api3.entity.UserPopularityLog" id="userPopularityLog">
+		<result property="id" column="id"/>
+		<result property="uid" column="uid"/>
+		<result property="popularityType" column="popularity_type"/>
+		<result property="popularity" column="popularity"/>
+	</resultMap>
+	<resultMap class="com.kascend.music2.api3.entity.AlbumUdata" id="AlbumUdata">
+		<result property="albumId" column="album_id"/>
+		<result property="likeTimes" column="like_times"/>
+		<result property="commentTimes" column="comment_times"/>
+		<result property="shareTimes" column="share_times"/>
+		<result property="ratingValue" column="rating_value"/>
+		<result property="ratingTimes" column="rating_times"/>
+		<result property="userTimes" column="user_times"/>
+		<result property="lastPlayTime" column="last_play_time"/>
+		<result property="lastOpType" column="last_op_type"/>
+	</resultMap>
+	
+	<resultMap class="com.kascend.music2.api3.entity.UserFollowUser" id="userFollowUser">
+		<result property="followId" column="follow_id"/>
+		<result property="uid" column="uid"/>
+		<result property="followUid" column="follow_uid"/>
+		<result property="createTime" column="create_time"/>
+	</resultMap>
+	
+	<resultMap class="com.kascend.music2.api3.entity.UserShare" id="UserShare">
+         <result property="shareId" column="share_id" javaType="java.lang.Long"/>
+         <result property="uid" column="uid" javaType="java.lang.Long"/>
+         <result property="itemId" column="item_id" />
+         <result property="itemType" column="item_type" />
+         <result property="status" column="status" />
+         <result property="forwardTimes" column="forward_times"  />
+         <result property="commentTimes" column="comment_times"  />
+         <result property="likeTimes" column="like_times"  />
+         <result property="isForward" column="is_forward"  />
+         <result property="forwardShareId" column="forward_share_id"  />
+         <result property="forwardUid" column="forward_uid"  />
+         <result property="createTime" column="create_time"  />
+         <result property="updateTime" column="update_time"  />
+    </resultMap>
+    
+    	
+	<resultMap class="com.kascend.music2.api3.entity.UserShare" id="UserSnsShare">
+         <result property="shareId" column="sns_share_id" javaType="java.lang.Long"/>
+         <result property="uid" column="uid" javaType="java.lang.Long"/>
+         <result property="snsSite" column="sns_site"/>
+         <result property="itemId" column="item_id" />
+         <result property="itemType" column="item_type" />
+         <result property="status" column="status" />
+         <result property="createTime" column="create_time"  />
+    </resultMap>
+    
+    	<resultMap class="com.kascend.music2.api3.entity.UserComment" id="UserComment">
+         <result property="commentId" column="comment_id" javaType="java.lang.Long"/>
+         <result property="uid" column="uid" javaType="java.lang.Long"/>
+         <result property="itemId" column="item_id" />
+         <result property="itemType" column="item_type" />
+         <result property="status" column="status" />
+         <result property="isReply" column="is_reply"  />
+         <result property="replyCommentId" column="reply_comment_id"  />
+         <result property="content" column="content"  />
+         <result property="createTime" column="create_time"  />
+          <result property="secondItemId" column="second_item_id"  />
+         <result property="updateTime" column="update_time"  />
+    </resultMap>
+    <resultMap class="com.kascend.music2.api3.entity.User" id="User">
+         <result property="uid" column="uid" />
+         <result property="name" column="name" />
+         <result property="nickname" column="nickname" />
+         <result property="title" column="title" />
+         <result property="followCount" column="follow_count" />
+         <result property="followArtistCount" column="follow_artist_count"  />
+         <result property="fansCount" column="fans_count"  />
+         <result property="likeCount" column="like_count"  />
+         <result property="shareCount" column="share_count"  />
+         <result property="headIcon" column="head_icon"  />
+         <result property="popularity" column="popularity"  />
+         <result property="activity" column="activity"  />
+         <result property="sex" column="sex"  />
+         <result property="score" column="score"  />
+         <result property="signature" column="signature"  />
+         <result property="userFrom" column="user_from"  />
+         <result property="userType" column="user_type"  />
+         <result property="updateTime" column="update_time"  />
+         <result property="lastSongId" column="last_song_id"  />
+         <result property="lastSongPlayTime" column="last_song_play_time"  />
+    </resultMap>
+    
+    <resultMap class="com.kascend.music2.api3.entity.User" id="TalentUser">
+         <result property="uid" column="uid" />
+         <result property="name" column="name" />
+         <result property="nickname" column="nickname" />
+         <result property="title" column="title" />
+         <result property="followCount" column="follow_count" />
+         <result property="followArtistCount" column="follow_artist_count" />
+         <result property="fansCount" column="fans_count"  />
+         <result property="likeCount" column="like_count"  />
+         <result property="shareCount" column="share_count"  />
+         <result property="headIcon" column="head_icon"  />
+         <result property="popularity" column="popularity"  />
+         <result property="activity" column="activity"  />
+         <result property="sex" column="sex"  />
+         <result property="score" column="score"  />
+         <result property="signature" column="signature"  />
+         <result property="userFrom" column="user_from"  />
+         <result property="userType" column="user_type"  />
+         <result property="updateTime" column="update_time"  />
+         <result property="lastSongId" column="last_song_id"  />
+         <result property="lastSongPlayTime" column="last_song_play_time"  />
+         <result property="songCount" column="song_count"  />
+         <result property="albumCount" column="album_count"  />
+         <result property="artistCount" column="artist_count"  />
+         <result property="recentAlbumCount" column="recent_album_count"  />
+    </resultMap>
+    <resultMap class="com.kascend.music2.api3.entity.UserOpAlbum" id="UserOpAlbum">
+        <result property="uid" column="uid" />
+        <result property="albumId" column="album_id" />
+        <result property="type" column="type" />
+        <result property="lastTime" column="last_time" />
+        <result property="lastSongId" column="last_song_id" />
+        <result property="lastCommentId" column="last_comment_id" />
+    </resultMap>
+    <resultMap class="com.kascend.music2.api3.entity.Artist" id="Artist">
+         <result property="artistId" column="artist_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistRegion" column="artist_region" />
+        <result property="artistType" column="artist_type" />
+        <result property="uid" column="uid" />
+    </resultMap>
+    
+   <resultMap id="userListenedArtist" class="com.kascend.music2.api3.entity.Artist" >
+	    <result property="artistId" column="artist_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistRegion" column="artist_region" />
+        <result property="artistType" column="artist_type" />
+        <result property="publishedAlbums" column="published_albums" />
+        <result property="artistThumbnail" column="artist_thumbnail" />
+    </resultMap>
+    <resultMap class="com.kascend.music2.api3.entity.UserSnsItem" id="UserSnsItem">
+         <result property="itemId" column="item_id" />
+        <result property="uid" column="uid" />
+        <result property="snsItemId" column="sns_item_id" />
+        <result property="snsSite" column="sns_site" />
+        <result property="content" column="content" />
+        <result property="picThumb" column="pic_thumb" />
+        <result property="pic" column="pic" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+    </resultMap>
+    
+    <resultMap id="userSong" class="com.kascend.music2.api3.entity.UserSong" >
+    	 <result property="id" column="id" />
+    	 <result property="songId" column="song_id" />
+    	 <result property="uid" column="uid" />
+    	 <result property="songTitle" column="song_title" />
+    	 <result property="artistName" column="artist_name" />
+    	 <result property="artistId" column="artist_id" />
+    	 <result property="albumTitle" column="album_title" />
+    	 <result property="songPath" column="song_path" />
+    	 <result property="albumId" column="album_id" />
+    	 <result property="duration" column="duration" />
+    	 <result property="songThumb" column="song_thumb" />
+    	 <result property="hasMv" column="has_mv" />
+    </resultMap>
+    
+    <resultMap id="userPlaylist" class="com.kascend.music2.api3.entity.UserPlaylist" >
+    	 <result property="uid" column="uid" />
+    	 <result property="playlistId" column="playlist_id" />
+    	 <result property="title" column="title" />
+    	 <result property="playlistType" column="playlist_type" />
+    	 <result property="itemCount" column="item_count" />
+    	 <result property="dataFrom" column="data_from" />
+    	 <result property="description" column="description" />
+    	 <result property="thumb" column="thumb" />
+    	 <result property="updateTime" column="update_time" />
+    </resultMap>
+    <select id="getUserFollowedArtistUids" parameterClass="long"   resultClass="long">
+	    SELECT artist_uid FROM user_follow_artist where uid=#uid#
+	</select>
+	
+	<select id="getUserFollowedArtistIds" parameterClass="long"   resultClass="long">
+	    SELECT artist_id FROM user_follow_artist where uid=#uid#
+	</select>
+	
+	<select id="getUserFollowedUids" parameterClass="long"   resultClass="long">
+	    SELECT follow_uid FROM user_follow_user where uid=#uid#
+	</select>
+	
+	<select id="getUserListByUids" parameterClass="java.util.List"   resultMap="User">
+	    SELECT * FROM user where uid IN
+	     <iterate open="(" close=")"  conjunction="," >#uidList[]#</iterate>
+	</select>
+	
+	<select id="getListUserList" parameterClass="com.kascend.music2.api3.service.social.info.ListUserInfo"   resultClass="com.kascend.music2.api3.entity.User">
+	    SELECT u.uid as uid,
+	    u.nickname as nickname
+	    <isEqual property="tokenflag" compareValue="1" prepend=",">
+	    	us.token as name
+	    </isEqual>
+	    <isNotEqual property="tokenflag" compareValue="1" prepend=",">
+	    	null as name
+	    </isNotEqual>
+	    FROM user as u 
+	    LEFT JOIN user_session as us ON us.uid=u.uid
+	    where u.uid IN
+	     <iterate open="(" close=")"  conjunction="," property="uidList">#uidList[]#</iterate>
+	</select>
+	<select id="getUserListByUidsWithStatus" parameterClass="java.util.List"   resultMap="User">
+	    SELECT * FROM user where uid IN
+	     <iterate open="(" close=")"  conjunction="," >#uidList[]#</iterate>
+	     AND (status=0 or status=2)
+	     AND song_count > 0 
+	</select>
+	
+	<select id="getUserListByUidsWithStatusAll" parameterClass="java.util.List"   resultMap="TalentUser">
+	    SELECT * FROM user where uid IN
+	     <iterate open="(" close=")"  conjunction="," >#uidList[]#</iterate>
+	     AND (status=0 OR status=2)
+	</select>
+	
+	<select id="getUserListByKeyname" parameterClass="SearchUserInfo"   resultMap="TalentUser">
+	    SELECT * FROM user where (status=0 or status=2)  and  nickname like #keyname#  
+	    <isNotEqual compareValue="0" property="headiconflag" prepend="and">
+	    	head_icon is not null
+	    </isNotEqual>
+	    order by activity desc
+	    limit #start#,#pagecount#
+	</select>
+	
+	<select id="getUserShareListByUids" parameterClass="AttentionUsersInfo"   resultMap="UserShare">
+	    SELECT * FROM user_share where uid IN 
+	    			<iterate open="(" close=")"  conjunction=","  property="uidList">#uidList[]#</iterate>
+	    	ORDER BY share_id DESC
+	    	LIMIT #start#, #pagecount#
+	</select>
+	
+	<select id="getUserShareListBySnsShareId" parameterClass="AttentionUsersInfo"   resultMap="UserSnsShare">
+	    SELECT * FROM user_sns_share where sns_share_id=#shareId#
+	</select>
+	
+    <select id="getUserShareListAllCountByUids" parameterClass="AttentionUsersInfo"   resultClass="java.lang.Integer">
+	    SELECT count(*) FROM user_share where uid IN 
+	    			<iterate open="(" close=")"  conjunction=","  property="uidList">#uidList[]#</iterate>
+	    	ORDER BY share_id DESC
+	    	LIMIT 1;
+	</select>
+	
+	<select id="getUserShareListByItemTypeAndTargetUid" parameterClass="AttentionUsersInfo"   resultMap="UserShare">
+	    SELECT * FROM user_share 
+	    where uid=#targetuid# 
+	    <isNotEqual property="itemtype" compareValue="0">
+	    	AND item_type=#itemtype#
+	    </isNotEqual>
+	    ORDER BY share_id DESC
+	    LIMIT #start#, #pagecount#
+	</select>
+	
+	<select id="getUserShareListByItemTypeAndTargetUidAllCount" parameterClass="AttentionUsersInfo" resultClass="java.lang.Integer">
+	    SELECT COUNT(*) FROM user_share 
+	    where uid=#targetuid# 
+	    <isNotEqual property="itemtype" compareValue="0">
+	    	AND item_type=#itemtype#
+	    </isNotEqual>
+	    LIMIT 1
+	</select>
+	
+	<select id="getUserShareListByItemTypes" parameterClass="AttentionUsersInfo"   resultMap="UserShare">
+	    SELECT * FROM user_share 
+	    where 1=1 
+	    <isNotEqual property="itemtype" compareValue="0">
+	    	AND item_type=#itemtype#
+	    </isNotEqual>
+	    <isEqual property="shareType" compareValue="1">
+	    	AND share_type=#shareType#
+	    </isEqual>
+	    ORDER BY share_id DESC
+	    LIMIT #start#, #pagecount#
+	</select>
+	
+	<select id="getUserShareByShareId" parameterClass="java.lang.Long"   resultMap="UserShare">
+	    SELECT * FROM user_share WHERE share_id=#shareId#
+	</select>
+	
+	<insert id="saveUserShare" parameterClass="SnsItemsInfo">
+	   	   INSERT INTO user_share(uid,item_id,item_type,create_time,update_time,data_from,share_type,forward_share_id,forward_uid,is_forward)
+	   	    VALUES(#uid#,#id#,#itemtype#,unix_timestamp(),unix_timestamp(),#dataFrom#,#shareType#,#forwardshareid#,#forwarduid#,#isForward#)
+	   	    <selectKey resultClass="long" keyProperty="shareId">
+  			SELECT LAST_INSERT_ID() AS shareId
+  		    </selectKey>
+	 </insert>
+	   
+	<insert id="saveUserShareContent" parameterClass="ShareInfo">
+	   	  insert into user_share_content(share_id,content) VALUES(#shareId#,#title#);
+	</insert>
+	
+	<select id="getUserCommentListByItemTypeAndId" parameterClass="GetCommentsOfItemInfo"   resultMap="UserComment">
+	    SELECT 
+	    uc.comment_id,
+	    uc.uid,
+	    uc.item_id,
+	    uc.item_type,
+	    uc.status,
+	    uc.is_reply,
+	    uc.reply_comment_id,
+	    uc.create_time,
+	    uc.update_time,
+	    uc.second_item_id,
+	    ucc.content as content
+	    FROM user_comment AS uc
+	    LEFT JOIN user_comment_content AS ucc ON uc.comment_id=ucc.comment_id
+	    WHERE uc.item_id=#id# AND uc.item_type=#itemtype#
+	    AND uc.reply_comment_id=0
+	    ORDER BY uc.comment_id DESC
+	    LIMIT #start#, #pagecount#
+	</select>
+	
+	<select id="getReplyUserCommentListByCommendIdList" parameterClass="java.util.List"   resultMap="UserComment">
+	    SELECT 
+	    uc.comment_id,
+	    uc.uid,
+	    uc.item_id,
+	    uc.item_type,
+	    uc.status,
+	    uc.is_reply,
+	    uc.reply_comment_id,
+	    uc.create_time,
+	    uc.update_time,
+	    uc.second_item_id,
+	    ucc.content as content
+	    FROM user_comment AS uc
+	    LEFT JOIN user_comment_content AS ucc ON uc.comment_id=ucc.comment_id
+	    WHERE uc.reply_comment_id IN 
+	    <iterate open="(" close=")"  conjunction="," >#commentIdList[]#</iterate>
+	</select>
+	
+	<select id="getUserCommentListInfoByCommentId" parameterClass="java.lang.Long" resultMap="UserComment">
+			    SELECT 
+	    uc.comment_id,
+	    uc.uid,
+	    uc.item_id,
+	    uc.item_type,
+	    uc.status,
+	    uc.is_reply,
+	    uc.reply_comment_id,
+	    uc.create_time,
+	    uc.update_time,
+	    uc.second_item_id,
+	    ucc.content as content
+	    FROM user_comment AS uc
+	    LEFT JOIN user_comment_content AS ucc ON uc.comment_id=ucc.comment_id
+	    WHERE uc.comment_id=#commentId#
+	</select>
+	
+	<select id="getUserCommentListByCommentIdList" parameterClass="java.util.List" resultMap="UserComment">
+		SELECT 
+	    uc.comment_id,
+	    uc.uid,
+	    uc.item_id,
+	    uc.item_type,
+	    uc.status,
+	    uc.is_reply,
+	    uc.reply_comment_id,
+	    uc.create_time,
+	    uc.update_time,
+	    uc.second_item_id,
+	    ucc.content as content
+	    FROM user_comment AS uc
+	    LEFT JOIN user_comment_content AS ucc ON uc.comment_id=ucc.comment_id
+	    WHERE uc.comment_id IN
+	    <iterate close=")" open="(" conjunction=",">
+	    	 #commentIdList[]#
+	    </iterate>
+	</select>
+	
+	<select id="getUserCommentListByItemTypeAndIdAllCount" parameterClass="GetCommentsOfItemInfo"   resultClass="java.lang.Integer">
+	    SELECT count(*) FROM user_comment
+	    where item_id=#id# AND item_type=#itemtype#
+	    AND reply_comment_id=0
+	    LIMIT 1;
+	</select>
+	
+	<select id="getUserShareContentListByIds" parameterClass="java.util.List"  resultClass="com.kascend.music2.api3.entity.UserShareContent">
+	    SELECT share_id shareId, content FROM user_share_content where share_id IN 
+	    		<iterate open="(" close=")"  conjunction="," >#shareIds[]#</iterate>
+	</select>
+	
+	<select id="getUserCommentContentListByIds" parameterClass="java.util.List"  resultClass="com.kascend.music2.api3.entity.UserCommentContent">
+	    SELECT comment_id commentId, content FROM user_comment_content where comment_id IN 
+	    		<iterate open="(" close=")"  conjunction="," >#commentIds[]#</iterate>
+	</select>
+	
+	<select id="getArtistListByUids" parameterClass="java.util.List"   resultMap="Artist">
+	    SELECT * FROM artist where uid IN <iterate open="(" close=")"  conjunction="," >#uidList[]#</iterate>
+	</select>
+	
+	<select id="getUserById" parameterClass="long"   resultMap="User">
+	    SELECT * FROM user WHERE uid=#uid#  LIMIT 1;
+	</select>
+	
+	<select id="getTalentUserById" parameterClass="long"   resultMap="TalentUser">
+	    SELECT * FROM user WHERE uid=#uid#  limit 1;
+	</select>
+	
+   <select id="getTalentUsers" parameterClass="UserInfo"   resultMap="User">
+	    SELECT * FROM user WHERE (status=0 OR status=2)
+	    <isGreaterThan compareValue="0" property="usertype" prepend="AND">
+	    	user_type=#usertype#
+	    </isGreaterThan>
+	    <isNotEqual compareValue="-1" property="userfrom" prepend="AND">
+	    	user_from=#userfrom#
+	    </isNotEqual>
+	    ORDER BY activity DESC
+	    LIMIT #start#,#pagecount#;
+	</select>
+	
+	<select id="getTalentUsersAllcount" parameterClass="UserInfo"   resultClass="java.lang.Integer">
+	    SELECT count(*) FROM user WHERE  (status=0 OR status=2)
+	    <isGreaterThan compareValue="0" property="usertype" prepend="AND">
+	    	user_type=#usertype#
+	    </isGreaterThan>
+	    <isNotEqual compareValue="-1" property="userfrom" prepend="AND">
+	    	user_from=#userfrom#
+	    </isNotEqual>
+	</select>
+	
+	<select id="getUserFollowedUsers" parameterClass="UserInfo"   resultMap="User">
+	    SELECT u.* FROM user AS u  WHERE u.uid IN 
+		<iterate open="(" close=")" conjunction="," property="uidList">
+			#uidList[]#
+		</iterate>
+		AND (u.status=0 OR u.status=2)
+		ORDER BY u.uid ASC
+	    LIMIT #start#,#pagecount#
+	</select>
+	
+	<select id="getUserFollowedUsersAllcount" parameterClass="UserInfo"   resultClass="java.lang.Integer">
+	    SELECT COUNT(u.uid) FROM user AS u  WHERE u.uid IN 
+		<iterate open="(" close=")" conjunction="," property="uidList">
+			#uidList[]#
+		</iterate>
+		AND (u.status=0 OR u.status=2)
+	    LIMIT 1
+	</select>
+	
+	<select id="checkFollowArtist" parameterClass="FollowArtistInfo"   resultClass="int">
+	    SELECT count(follow_artist_id) FROM user_follow_artist where uid=#uid# and artist_id=#artistid#
+	</select>
+	
+	<insert id="addFollowArtist" parameterClass="FollowArtistInfo">
+		INSERT INTO user_follow_artist(uid, artist_id , create_time, artist_uid)
+			VALUES(#uid#, #artistid#, unix_timestamp(), #artistuid#)
+	</insert>
+	<delete id="deleteFollowArtist" parameterClass="FollowArtistInfo">
+		DELETE FROM user_follow_artist WHERE uid=#uid# and artist_id=#artistid#
+	</delete>
+		
+	<select id="checkFollowUser" parameterClass="FollowUserInfo"   resultClass="java.lang.Integer">
+	    SELECT count(follow_id) FROM user_follow_user where uid=#uid# and follow_uid=#followuid#
+	</select>
+	
+	<insert id="addFollowUser" parameterClass="FollowUserInfo">
+		INSERT INTO user_follow_user(uid, follow_uid, create_time)
+			VALUES(#uid#, #followuid#, unix_timestamp())
+	</insert>
+	<delete id="deleteFollowUser" parameterClass="FollowUserInfo">
+		DELETE FROM user_follow_user WHERE uid=#uid# and follow_uid=#followuid#
+	</delete>
+	      
+    <select id="getUserSnsItemListByIds" parameterClass="java.util.List"   resultMap="UserSnsItem">
+	    SELECT * FROM user_sns_item where item_id IN <iterate open="(" close=")"  conjunction="," >#snsItemIdList[]#</iterate>
+	 </select>
+	
+	  <select id="getSongLike" resultClass="java.lang.Long" parameterClass="LikeInfo">
+      		select sl.song_id FROM song_like AS sl WHERE sl.song_id=#id# and sl.uid=#uid#  limit 1;
+      </select>
+      <insert id="saveSongLike" parameterClass="LikeInfo">
+      		insert into song_like(song_id,uid,is_like,create_time) values(#id#,#uid#,#like#,now());
+      </insert>
+      
+      <delete id="deleteSongLike" parameterClass="LikeInfo">
+      		DELETE FROM song_like WHERE song_id=#id# AND uid=#uid#
+      </delete>
+
+      <select id="getArtistLike" resultClass="java.lang.Long" parameterClass="LikeInfo">
+      		select al.artist_id FROM artist_like AS al WHERE al.artist_id=#id# and al.uid=#uid#  limit 1;
+      </select>
+      <insert id="saveArtistLike" parameterClass="LikeInfo">
+      		insert into artist_like(artist_id,uid,is_like,create_time) values(#id#,#uid#,#like#,now());
+      </insert>
+  	   
+  	   <delete id="deleteArtistLike" parameterClass="LikeInfo">
+  	   		DELETE FROM artist_like WHERE artist_id=#id# AND uid=#uid#
+  	   </delete>
+      
+      <select id="getAlbumLike" resultClass="java.lang.Long" parameterClass="LikeInfo">
+      		select al.album_id FROM album_like AS al WHERE al.album_id=#id# and al.uid=#uid#  limit 1;
+      </select>
+      
+      <insert id="saveAlbumLike" parameterClass="LikeInfo">
+      		insert into album_like(album_id,uid,is_like,create_time) values(#id#,#uid#,#like#,now());
+      </insert>
+      
+	  <delete id="deleteAlbumLike" parameterClass="LikeInfo">
+  	   		DELETE FROM album_like WHERE album_id=#id# AND uid=#uid#
+  	  </delete>
+  	  
+  	  <select id="getUserPlaylistLike" resultClass="java.lang.Long" parameterClass="LikeInfo">
+      		select u.playlist_id FROM user_playlist_like AS u WHERE u.playlist_id=#id# and u.uid=#uid#  limit 1;
+      </select>
+      
+      <insert id="saveUserPlaylistLike" parameterClass="LikeInfo">
+      		INSERT INTO user_playlist_like(playlist_id,uid,is_like,create_time) values(#id#,#uid#,#like#,unix_timestamp());
+      </insert>
+      
+      <delete id="deleteUserPlaylistLike" parameterClass="LikeInfo">
+      	 DELETE FROM user_playlist_like WHERE playlist_id=#id# AND uid=#uid#
+      </delete>
+      
+	   <select id="getSongMvLike" resultClass="java.lang.Long" parameterClass="LikeInfo">
+	   		select sm.song_mv_id FROM song_mv_like AS sm WHERE sm.song_mv_id=#id# and sm.uid=#uid#  limit 1;
+	   </select>
+	   
+	   <insert id="saveSongMvLike" parameterClass="LikeInfo">
+	   		INSERT INTO song_mv_like(song_mv_id,uid,is_like,create_time) values(#id#,#uid#,#like#,unix_timestamp());
+	   </insert>
+	   
+	   <delete id="deleteSongMvLike" parameterClass="LikeInfo">
+	    	DELETE FROM song_mv_like WHERE song_mv_id=#id# AND uid=#uid#
+	   </delete>
+	   
+	   <insert id="saveUserComment" parameterClass="CommentInfo">
+	   	  insert into user_comment(uid,item_id,item_type,create_time,update_time,is_reply,reply_comment_id,second_item_id,reply_uid)
+	   	  VALUES(#uid#,#id#,#itemtype#,unix_timestamp(),unix_timestamp(),#isReply#,#replycommentid#,#seconditemid#,#replyUid#)
+	   	  <selectKey resultClass="long" keyProperty="commentId">
+  			SELECT LAST_INSERT_ID() AS commentId
+  		    </selectKey>
+	   </insert>
+	   
+	   <insert id="saveUserCommentContent" parameterClass="CommentInfo">
+	   	   insert into user_comment_content(comment_id,content) VALUES(#commentId#,#comment#);
+	   </insert>
+	   <update id="updateUserLikeCount" parameterClass="SnsItemsInfo">
+	   	  UPDATE user SET like_count=like_count+1 WHERE uid=#uid#
+	   </update>
+	   
+	   <update id="updateUserShareCount" parameterClass="SnsItemsInfo">
+	   	  UPDATE user SET share_count=share_count+1 WHERE uid=#uid#
+	   </update>
+	   
+	   <update id="updateUserKindCount" parameterClass="SnsItemsInfo">
+	   		UPDATE user SET
+	   		<isEqual compareValue="1" property="countType">
+	   			share_count=share_count+1 
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_count=like_count+1
+	   		</isEqual>
+	   		WHERE uid=#uid#
+	   </update>
+	   <update id="updateSongUdata" parameterClass="SnsItemsInfo">
+	   	   UPDATE song_udata SET
+	   	    <isEqual compareValue="1" property="countType">
+	   			share_times=share_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_times=like_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="3" property="countType">
+	   			comment_times=comment_times+1
+	   		</isEqual>
+	   	  WHERE song_id=#id#
+	   </update>
+	   
+	   <update id="updateArtistUdata" parameterClass="SnsItemsInfo">
+	   	   UPDATE artist_udata SET
+	   	    <isEqual compareValue="1" property="countType">
+	   			share_times=share_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_times=like_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="3" property="countType">
+	   			comment_times=comment_times+1
+	   		</isEqual>
+	   	  WHERE artist_id=#id#
+	   </update>
+	   
+	   <update id="updateAlbumUdata" parameterClass="SnsItemsInfo">
+	   	   UPDATE album_udata SET
+	   	    <isEqual compareValue="1" property="countType">
+	   			share_times=share_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_times=like_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="3" property="countType">
+	   			comment_times=comment_times+1
+	   		</isEqual>
+	   	  WHERE album_id=#id#
+	   </update>
+	   	   <update id="updatePlaylistUdata" parameterClass="SnsItemsInfo">
+	   	   UPDATE user_playlist_udata SET
+	   	    <isEqual compareValue="1" property="countType">
+	   			share_times=share_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_times=like_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="3" property="countType">
+	   			comment_times=comment_times+1
+	   		</isEqual>
+	   	  WHERE playlist_id=#id#
+	   </update>
+	   	   <update id="updateSongMvUdata" parameterClass="SnsItemsInfo">
+	   	   UPDATE song_mv_udata SET
+	   	    <isEqual compareValue="1" property="countType">
+	   			share_times=share_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="2" property="countType">
+	   			like_times=like_times+1
+	   		</isEqual>
+	   		<isEqual compareValue="3" property="countType">
+	   			comment_times=comment_times+1
+	   		</isEqual>
+	   	  WHERE mv_id=#id#
+	   </update>
+	   
+	<update id="updateUserShare" parameterClass="java.util.HashMap">
+		update user_share SET 
+		<isEqual compareValue="4" property="countType">
+	   		forward_times=forward_times+1
+	   	</isEqual>
+	   	<isEqual compareValue="3" property="countType">
+	   		comment_times=comment_times+1
+	   	</isEqual>
+		WHERE share_id=#shareId#
+	</update>
+	   
+	   <update id="updateUserInfo" parameterClass="UpdateUserInfo">
+	   		UPATE user SET sex=#sex#
+	   		<isNotNull prepend="," property="nickname">
+	   			nickname=#nickname#
+	   		</isNotNull>
+	   		<isNotNull prepend="," property="signature">
+	   			signature=#signature#
+	   		</isNotNull>
+	   		WHERE uid=#uid#
+	   </update>
+	   
+	  <select id="getUserPlaylistsByTargetUid" parameterClass="GetPlaylistsOfUserInfo" resultMap="userPlaylist">
+		SELECT * FROM user_playlist WHERE uid=#targetuid# AND (status=0 or status=1 or status=6) ORDER BY playlist_id ASC LIMIT #start#,#pagecount#;  
+	  </select>
+	  
+	  <select id="getUserPlaylistsByTargetUidAllCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+		SELECT count(*) FROM user_playlist WHERE uid=#targetuid# AND (status=0 or status=1 or status=6) LIMIT 1;  
+	  </select>
+	  
+	  <select id="getUserPlaylistByTitleAndUid" parameterClass="java.util.HashMap" resultMap="userPlaylist">
+		SELECT * FROM user_playlist WHERE uid=#uid# AND title=#playlistTitle#	 LIMIT 1;  
+	  </select>
+	  
+	  <select id="getUserPlaylistByUidAndDataFrom" parameterClass="java.util.HashMap" resultMap="userPlaylist">
+		SELECT * FROM user_playlist WHERE uid=#uid# AND data_from=#dataFrom#  LIMIT 1;  
+	  </select>
+	  
+	  
+	  <select id="getUserPlaylistByIdAndUid" parameterClass="java.util.HashMap" resultMap="userPlaylist">
+		SELECT * FROM user_playlist WHERE uid=#uid# AND playlist_id=#playlistId#	 LIMIT 1;  
+	  </select>
+	  
+	  
+	  <select id="getUserSongListByPlaylistIdAllCount" parameterClass="GetPlaylistInfo" resultClass="java.lang.Integer">
+      	SELECT 
+      	count(us.song_id)
+      	FROM user_song AS us
+      	LEFT JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE us.playlist_id=#playlistid# AND us.song_id > 0 
+        LIMIT 1;
+      </select>
+	  
+	  <select id="getUserSongListByPlaylistId" parameterClass="GetPlaylistInfo" resultMap="userSong">
+      	SELECT 
+      	us.id,
+      	us.uid, 
+      	us.song_title,
+      	us.song_id,
+      	us.album_id,
+      	us.album_title,
+      	us.artist_id,
+      	us.artist_name,
+      	us.duration,
+      	us.has_mv,
+		us.song_thumb,
+		null AS song_path,
+		IFNULL(usu.play_times,0) AS play_times  
+      	FROM user_song AS us
+      	LEFT JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE us.playlist_id=#playlistid# AND us.song_id >0
+        ORDER BY 
+        <isEqual property="sort" compareValue="1" >
+        	usu.play_times DESC,
+        </isEqual>
+        <isEqual property="sort" compareValue="2" >
+        	usu.last_play_time DESC,
+        </isEqual>
+        us.sort_index ASC
+        <isEqual property="pageFlag" compareValue="0">
+        	 LIMIT #start#,#pagecount#;
+        </isEqual>
+      </select>
+	  
+	  
+	  <select id="getUserSongByCondition" parameterClass="DeletePlaylistSongInfo" resultMap="userSong">
+	    SELECT
+	    us.id,
+	    us.uid,  
+      	us.song_title,
+      	us.song_id,
+      	us.album_id,
+      	us.album_title,
+      	us.artist_id,
+      	us.artist_name,
+      	us.duration,
+      	us.has_mv,
+		us.song_thumb,
+		null AS song_path,
+		IFNULL(usu.play_times,0) AS play_times  
+      	FROM user_song AS us
+      	LEFT JOIN user_song_udata AS usu ON usu.id=us.id
+		WHERE us.uid=#uid#  AND us.playlist_id=#pId#
+		AND us.song_id IN
+		<iterate close=")" open="(" conjunction="," property="songIdList">
+			#songIdList[]#
+		</iterate>
+	</select>
+	
+	  <select id="getUserSongListByDataFrom" parameterClass="GetPlaylistInfo" resultMap="userSong">
+      	SELECT
+      	us.id,
+      	us.uid,
+      	us.song_title,
+      	us.song_id,
+      	us.album_id,
+      	us.album_title,
+      	us.artist_id,
+      	us.artist_name,
+      	us.duration,
+      	us.has_mv,
+		us.song_thumb,
+		null AS song_path,
+		IFNULL(usu.play_times,0) AS play_times  
+      	FROM user_song AS us
+      	LEFT JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE  us.data_from=#dataFrom#
+      	<isGreaterThan prepend="and" property="targetuid" compareValue="0">
+      		us.uid=#targetuid#
+      	</isGreaterThan>
+      	<isEqual prepend="and" property="targetuid" compareValue="0">
+      		us.uid=#uid#
+      	</isEqual>
+        ORDER BY us.id DESC
+        LIMIT #start#,#pagecount#;
+      </select>
+      
+      <select id="getUserSongListByDataFromAllCount" parameterClass="GetPlaylistInfo" resultClass="java.lang.Integer">
+      	SELECT 
+      	count(us.song_id)
+      	FROM user_song AS us
+      	LEFT JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE   us.data_from=#dataFrom#
+      	<isGreaterThan prepend="and" property="targetuid" compareValue="0">
+      		us.uid=#targetuid#
+      	</isGreaterThan>
+      	<isEqual prepend="and" property="targetuid" compareValue="0">
+      		us.uid=#uid#
+      	</isEqual>
+        LIMIT 1;
+      </select>
+      
+	  <select id="getUserMostAndRecentPlayedSongList" parameterClass="GetPlaylistInfo" resultMap="userSong">
+      	SELECT
+      	us.id, 
+      	us.uid,
+      	us.song_title,
+      	us.song_id,
+      	us.album_id,
+      	us.album_title,
+      	us.artist_id,
+      	us.artist_name,
+      	us.duration,
+      	us.has_mv,
+		us.song_thumb,
+		null AS song_path,
+		IFNULL(usu.play_times,0) AS play_times  
+      	FROM user_song AS us
+      	JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE  us.song_id >0 
+      	<isGreaterThan property="targetuid" compareValue="0" prepend="AND">
+      		us.uid=#targetuid#
+      	</isGreaterThan>
+      	<isEqual property="targetuid" compareValue="0" prepend="AND">
+      		us.uid=#uid#
+      	</isEqual>
+        ORDER BY 
+        <isEqual property="sort" compareValue="1" >
+        	usu.play_times DESC,
+        </isEqual>
+        <isEqual property="sort" compareValue="2" >
+        	usu.last_play_time DESC,
+        </isEqual>
+        us.sort_index ASC
+        LIMIT #start#,#pagecount#;
+      </select>
+	  
+	  <select id="getUserMostAndRecentPlayedSongListAllCount" parameterClass="GetPlaylistInfo" resultClass="java.lang.Integer">
+      	SELECT 
+      	count(us.song_id)
+      	FROM user_song AS us
+      	JOIN user_song_udata AS usu ON usu.id=us.id
+      	WHERE 1=1
+      	<isGreaterThan prepend="and" compareValue="0" property="targetuid">
+      		us.uid=#targetuid#
+      	</isGreaterThan>
+      	<isEqual prepend="and" compareValue="0" property="targetuid">
+      		us.uid=#uid#
+      	</isEqual>
+        LIMIT 1;
+      </select>
+	  
+	  
+	  <insert id="saveUserPlaylist" parameterClass="userMetadata">
+	  	 insert into user_playlist(uid,title,thumb,description,data_from,playlist_type,create_time,update_time) 
+	  	 values(#uid#,#playlistTitle#,#playlistThumb#,#description#,#dataFrom#,#playlistType#,unix_timestamp(),unix_timestamp())
+	  	<selectKey resultClass="long" keyProperty="playlistid">  
+            SELECT 
+  			LAST_INSERT_ID() AS playlistid
+        </selectKey> 
+	  </insert>
+	  
+	  
+	  <insert id="saveUserSongList" parameterClass="com.kascend.music2.api3.entity.UserSong">
+	  	insert into user_song(playlist_id,uid,song_id,song_title,artist_id,artist_name,album_id,album_title,song_path,create_time,song_thumb,has_mv,duration,sort_index,data_from)
+	  	values(#playlistId#,#uid#,#songId#,#songTitle#,#artistId#,#artistName#,#albumId#,#albumTitle#,#songPath#,unix_timestamp(),#songThumb#,#hasMv#,#duration#,#sortIndex#,#dataFrom#);
+	  	<selectKey resultClass="long" keyProperty="id">  
+            SELECT 
+  			LAST_INSERT_ID() AS id
+        </selectKey> 
+	  </insert>
+	  
+	  <delete id="deleteUserSongListByIdList" parameterClass="java.util.List">
+	  	  DELETE FROM user_song WHERE id IN
+	  	  <iterate close=")" open="(" conjunction=",">
+	  	  		#idList[]#
+	  	  </iterate>
+	  </delete>
+	  
+	  <delete id="deleteUserSongListAll" parameterClass="java.util.HashMap">
+	  	DELETE FROM user_song WHERE playlist_id=#playlistId# AND uid=#uid#
+	  </delete>
+	  
+	  
+	  <select id="getDiscoveryAlbumUdataList" parameterClass="MyAttentionInfo" resultMap="AlbumUdata" >
+	  	 SELECT * 
+	  	 FROM album_udata as au 
+	  	 WHERE au.last_play_time &gt; #passDate#
+	  	 <isGreaterThan compareValue="0" property="lastplaytime" prepend="AND">
+	  	 	au.last_play_time &lt; #lastplaytime#
+	  	 </isGreaterThan>
+	  	 order by au.last_play_time DESC
+	  	 LIMIT 
+	  	 <isEqual compareValue="0" property="lastplaytime">
+	  	 	#start#,
+	  	 </isEqual>
+	  	 #pagecount#;
+	  </select>
+
+	  <select id="getDiscoveryAlbumUdataListAllCount" parameterClass="MyAttentionInfo" resultClass="java.lang.Integer">
+	  	 SELECT count(au.album_id) 
+	  	 FROM album_udata AS au 
+	  	 WHERE au.last_play_time &gt; unix_timestamp(#passDate#)
+	  	 <isGreaterThan compareValue="0" property="lastplaytime" prepend="AND">
+	  	 	au.last_play_time &lt; #lastplaytime#
+	  	 </isGreaterThan>
+	  	  LIMIT 1;
+	  </select>
+
+	  
+	  <select id="getFollowedAlbumOfUserByAlbumIdAndUid" parameterClass="java.util.HashMap" resultMap="UserOpAlbum">
+	  		SELECT * FROM user_op_album AS uoa
+	  		WHERE uoa.uid=#uid# AND uoa.album_id=#albumId#
+	  		limit 1
+	  </select>
+	  
+	  
+	  <select id="getUserOpAlumInfo" parameterClass="java.util.HashMap" resultMap="UserOpAlbum">
+	  	   SELECT * 
+	  	   FROM user_op_album 
+	  	   WHERE album_id=#albumId#
+	  	   <isNotEqual compareValue="-1" property="type" prepend="AND">
+	  	   	  type=#type#
+	  	   </isNotEqual>
+	  	   ORDER BY last_time DESC
+	  	   LIMIT #pagecount#
+	  </select>
+	  
+	  <select id="getMyAttentionAlbumsByUidList" parameterClass="MyAttentionInfo" resultMap="UserOpAlbum">
+	  	 SELECT *  FROM user_op_album  
+	  	 WHERE  1=1
+	  	 <isGreaterThan compareValue="0" property="lastplaytime" prepend="AND">
+	  	 	last_time &lt; #lastplaytime#
+	  	 </isGreaterThan>
+	  	 AND uid IN 
+	  	 <iterate close=")" open="(" conjunction="," property="uidList">
+	  	 	#uidList[]#
+	  	 </iterate>
+	  	 ORDER BY last_time DESC
+	  	  LIMIT 
+	  	  <isLessEqual compareValue="0" property="lastplaytime">
+	  	  	#start#,
+	  	  </isLessEqual>
+	  	  #pagecount#;
+	  </select>
+	  
+	  	  <select id="getMyAttentionAlbumsByUidListAllCount" parameterClass="MyAttentionInfo" resultClass="java.lang.Integer">
+	  	 SELECT count(*)  
+	  	 FROM user_op_album  
+	  	 WHERE  1=1
+	  	 <isGreaterThan compareValue="0" property="lastplaytime" prepend="AND">
+	  	 	last_time &lt; #lastplaytime#
+	  	 </isGreaterThan>
+	  	 AND uid IN 
+	  	 <iterate close=")" open="(" conjunction="," property="uidList">
+	  	 	#uidList[]#
+	  	 </iterate>
+	  	  LIMIT 1;
+	  </select>
+	  
+	  <select id="getListenedSongInUserSong" parameterClass="MyAttentionAlbumInfo" resultClass="java.lang.Long">
+	  	  SELECT distinct song_id FROM user_song WHERE uid=#targetuid# AND song_id IN
+	  	  <iterate close=")" open="(" conjunction="," property="songIdList">
+	  	  		#songIdList[]#
+	  	  </iterate>
+	  </select>
+	  
+	  <select id="getListenedSongInUserSongAndPlaylist" parameterClass="MyAttentionAlbumInfo" resultClass="java.lang.Long">
+	  	  SELECT distinct us.song_id FROM user_song AS us
+	  	  JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+	  	   WHERE up.data_from=1 AND us.uid=#targetuid# AND us.song_id IN
+	  	  <iterate close=")" open="(" conjunction="," property="songIdList">
+	  	  		#songIdList[]#
+	  	  </iterate>
+	  </select>
+	  
+	  <select id="getUserFansIds" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+	  		SELECT uid 
+	  		FROM user_follow_user 
+	  		WHERE follow_uid=#uid#
+	  		LIMIT #start#,#pagecount#;
+	  </select>
+	  
+	  <select id="getUserFansIdsAllCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+	  		SELECT count(DISTINCT uid) 
+	  		FROM user_follow_user 
+	  		WHERE follow_uid=#uid#
+	  		LIMIT 1;
+	  </select>
+	  
+	  <select id="getSongCountOfUserSong" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+	  	 SELECT COUNT(us.song_id) 
+	 	 FROM user_song as us JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+         and up.uid=us.uid
+	  	 WHERE up.uid=#uid# AND up.data_from=1;
+	  </select>
+	  
+	  <select id="getAlbumCountOfUserSong" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+	  	 SELECT COUNT(DISTINCT album_id) 
+	  	 FROM user_song as us JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+         and up.uid=us.uid
+	  	 WHERE up.uid=#uid#  AND up.data_from=1 and us.album_id >0;
+	  </select>
+	  
+	  <select id="getArtistCountOfUserSong" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+	  	 SELECT COUNT(DISTINCT artist_id) 
+	  	  FROM user_song as us JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+         and up.uid=us.uid
+	  	 WHERE up.uid=#uid#  AND up.data_from=1 and us.artist_id >0;
+	  </select>
+	  
+	  <update id="updateUserMetadatCount" parameterClass="java.util.HashMap">
+	  	 UPDATE user set song_count=#songCount#,album_count=#albumCount#,artist_count=#artistCount#
+	  	 WHERE uid=#uid#
+	  </update>
+	  
+	  <select id="getDefaultUserPlaylistidByUid" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+	  	 SELECT playlist_id FROM user_playlist WHERE uid=#uid# AND data_from=#dataFrom# LIMIT 1;
+	  </select>
+
+	<select id="getNativeUserSnsCount" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+		SELECT COUNT(*) FROM user_sns WHERE uid=#uid# AND sns_site=#snsSite# LIMIT 1;
+	</select>
+
+	<insert id="saveNativeUserSns" parameterClass="UserSns">
+		 insert into user_sns(uid,sns_site,sns_account,sns_username,sns_password,sns_uid,head_icon,status,create_time,update_time) values
+		 (#uid#,#snsSite#,#snsAccount#,#snsUserName#,#snsPassword#,#snsUid#,#snsHeadIcon#,#status#,unix_timestamp(),unix_timestamp())
+	</insert>
+	
+	<delete id="deleteNativeUserSns" parameterClass="java.util.HashMap">
+		DELETE FROM user_sns WHERE uid=#uid# AND sns_site=#snsSite#;
+	</delete>
+	
+	
+	<insert id="saveUserSnsShare" parameterClass="com.kascend.music2.api3.service.social.info.UserSnsShareInfo">
+		 insert into user_sns_share(uid,sns_id,item_id,item_type,create_time) values
+		 (#uid#,#snsId#,#id#,#itemtype#,unix_timestamp())
+		<selectKey resultClass="long" keyProperty="snsShareId">
+  			SELECT LAST_INSERT_ID() AS snsShareId
+  		</selectKey>
+	</insert>
+	
+	<insert id="saveUserSnsContent" parameterClass="java.util.HashMap">
+		insert into user_sns_share_content(sns_share_id,content) values(#snsShareId#,#content#);
+	</insert>
+	
+	<update id="updateUserSnsShareStatus" parameterClass="java.lang.Long">
+		UPDATE user_sns_share SET status=1 WHERE sns_share_id=#snsShareId#
+	</update>
+	
+	<update id="addUserFollowCount" parameterClass="java.lang.Long">
+		UPDATE user SET follow_count=follow_count+1 
+		WHERE uid=#uid#
+	</update>
+	<update id="delUserFollowCount" parameterClass="java.lang.Long">
+		UPDATE user SET follow_count=follow_count-1 
+		WHERE uid=#uid# AND follow_count >=1;
+	</update>
+	<select id="getUserFansCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+		SELECT count(DISTINCT uid) 
+		FROM user_follow_user 
+		WHERE follow_uid=#uid#
+	</select>
+	
+	<update id="updateUserFansCount" parameterClass="java.util.HashMap">
+		UPDATE user SET fans_count=#fansCount# 
+		WHERE uid=#uid#
+	</update>
+	
+	<select id="getUserFollowUserList" parameterClass="UserFollowStatusInfo" resultClass="java.lang.Long">
+		SELECT follow_uid 
+		FROM user_follow_user 
+		WHERE uid=#uid# 
+		AND follow_uid IN
+		<iterate close=")" open="(" conjunction="," property="followUidList">
+			#followUidList[]#
+		</iterate>
+	</select>
+	
+	<select id="getUserFollowArtistList" parameterClass="ArtistFollowStatusInfo" resultClass="java.lang.Long">
+		SELECT artist_id 
+		FROM user_follow_artist 
+		WHERE uid=#uid# 
+		AND artist_id IN
+		<iterate close=")" open="(" conjunction="," property="artistIdList">
+			#artistIdList[]#
+		</iterate>
+	</select>
+	
+	<select id="getUserSnsListByUid" parameterClass="java.lang.Long" resultMap="userSns">
+		SELECT * FROM user_sns 
+		WHERE uid=#uid#
+	</select>
+	
+	<update id="updateUserSongSortIndex" parameterClass="java.util.HashMap">
+		UPDATE user_song 
+		SET sort_index=#sortIndex# 
+		WHERE id=#id#
+	</update>
+	
+	<delete id="deleteFromUserSong" parameterClass="java.util.HashMap">
+		DELETE FROM user_song 
+		WHERE uid=#uid# AND song_id=#songId# AND playlist_id=#playlistId#
+	</delete>
+	
+	<select id="getUserListenedArtistIdList" parameterClass="GetUserArtistInfo" resultClass="java.lang.Long">
+		SELECT DISTINCT us.artist_id 
+		FROM user_song as us
+		WHERE  us.artist_id > 0
+		AND us.playlist_id=#playlistid#
+		<isGreaterThan compareValue="0" prepend="and" property="targetuid">
+			us.uid=#targetuid#
+		</isGreaterThan>
+		<isEqual compareValue="0" prepend="and" property="targetuid">
+			us.uid=#uid#
+		</isEqual>
+		ORDER BY us.create_time DESC
+		LIMIT #start#,#pagecount#;
+	</select>
+	
+	<select id="getUserListenedArtistIdListAllCount" parameterClass="GetUserArtistInfo" resultClass="java.lang.Integer">
+		SELECT COUNT(DISTINCT us.artist_id) 
+	    FROM user_song as us
+		WHERE  us.artist_id > 0
+		AND us.playlist_id=#playlistid#
+		<isGreaterThan compareValue="0" prepend="and" property="targetuid">
+			us.uid=#targetuid#
+		</isGreaterThan>
+		<isEqual compareValue="0" prepend="and" property="targetuid">
+			us.uid=#uid#
+		</isEqual>
+		LIMIT 1;
+	</select>
+	<select id="getUserListenedAlbumIdList" parameterClass="GetUserAlbumsInfo" resultClass="java.lang.Long">
+		SELECT DISTINCT us.album_id 
+		FROM user_song as us
+		JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+		WHERE  us.album_id > 0
+		AND up.data_from=#userPlaylistDataFrom#
+		<isGreaterThan property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#targetuid#
+		</isGreaterThan>
+		<isEqual property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#uid#
+		</isEqual>
+		ORDER BY us.create_time DESC
+		LIMIT #start#,#pagecount#
+	</select>
+	
+	<select id="getUserListenedAlbumIdListAllCount" parameterClass="GetUserAlbumsInfo" resultClass="java.lang.Integer">
+		SELECT count(DISTINCT us.album_id) 
+		FROM user_song as us
+		JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+		WHERE  us.album_id > 0
+		AND up.data_from=#userPlaylistDataFrom#
+		<isGreaterThan property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#targetuid#
+		</isGreaterThan>
+		<isEqual property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#uid#
+		</isEqual>
+		LIMIT 1;
+	</select>
+	<select id="getUserListenedArtistList" parameterClass="GetUserArtistInfo" resultMap="userListenedArtist">
+		SELECT
+		a.artist_id,
+		a.artist_name,
+		a.artist_region,
+		a.artist_type,
+		a.artist_thumbnail,
+    	0 AS published_albums
+		FROM artist as a
+		WHERE a.artist_id IN 
+		<iterate close=")" open="(" conjunction="," property="artistIdList">
+			#artistIdList[]#
+		</iterate>
+		AND (a.status=0 or a.status=1 or a.status=6);
+	</select>
+	
+	<select id="getUserListenedArtistAlbumCountList" parameterClass="GetUserArtistInfo" resultClass="com.kascend.music2.api3.entity.Artist">
+		SELECT usa.artist_id AS artistId,
+		usa.album_count AS publishedAlbums
+		FROM user_song_artist AS usa
+		WHERE usa.artist_id IN 
+		<iterate close=")" open="(" conjunction="," property="artistIdList">
+			#artistIdList[]#
+		</iterate>
+		AND playlist_id=#playlistid#
+	</select>
+	
+	<select id="getUserListenedAlbumIdListAll" parameterClass="GetUserAlbumsOfArtistInfo" resultClass="java.lang.Long">
+		SELECT DISTINCT us.album_id 
+		FROM user_song AS us 
+		JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+		WHERE up.data_from=1 AND  us.artist_id=#artistid#
+		<isGreaterThan property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#targetuid#
+		</isGreaterThan>
+      	<isEqual property="targetuid" compareValue="0" prepend="AND">
+      		us.uid=#uid#
+      	</isEqual>
+
+	</select>
+	
+	<select id="getUserListenedAlbumAllCount" parameterClass="GetUserAlbumsOfArtistInfo" resultClass="java.lang.Integer">
+		SELECT count(DISTINCT us.album_id) 
+		FROM user_song AS us
+		JOIN user_playlist AS up ON up.playlist_id=us.playlist_id
+		WHERE up.data_from=1 AND  us.artist_id=#artistid#
+		<isGreaterThan property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#targetuid#
+		</isGreaterThan>
+		<isEqual property="targetuid"  compareValue="0" prepend="AND">
+			us.uid=#uid#
+		</isEqual>
+		LIMIT 1;
+	</select>
+	
+	<select id="getUserUnlistenedAlbumIdList" parameterClass="GetUserAlbumsOfArtistInfo" resultClass="java.lang.Long">
+		SELECT DISTINCT al.album_id 
+		FROM album AS al
+		JOIN artist_mp_album AS ama ON al.album_id=ama.album_id
+		JOIN artist AS a ON a.artist_id=ama.artist_id
+		WHERE a.artist_id=#artistid#
+		<isNotEmpty property="listenedAlbumIdList">
+			AND al.album_id NOT IN
+			<iterate close=")" open="(" conjunction="," property="listenedAlbumIdList">
+			#listenedAlbumIdList[]#
+			</iterate>
+		</isNotEmpty>
+		LIMIT #start#,#pagecount#
+	</select>
+	
+	<select id="getUserUnlistenedAlbumIdListAllCount" parameterClass="GetUserAlbumsOfArtistInfo" resultClass="java.lang.Integer">
+		SELECT count(DISTINCT al.album_id) 
+		FROM album AS al
+		JOIN artist_mp_album AS ama ON al.album_id=ama.album_id
+		JOIN artist AS a ON a.artist_id=ama.artist_id
+		WHERE a.artist_id=#artistid#
+		<isNotEmpty property="listenedAlbumIdList">
+			AND al.album_id NOT IN
+			<iterate close=")" open="(" conjunction="," property="listenedAlbumIdList">
+			#listenedAlbumIdList[]#
+			</iterate>
+		</isNotEmpty>
+		LIMIT 1
+	</select>
+	
+	<update id="updateUserPlaylistUpdatetimeAndImage" parameterClass="java.util.HashMap">
+		UPDATE user_playlist SET update_time=unix_timestamp()
+		<isNotNull property="imagePath" prepend=",">
+			thumb=#imagePath#
+		</isNotNull>
+		WHERE playlist_id=#playlistId#
+	</update>
+	
+	<delete id="deleteUserSongBySongIdAndPlaylistId" parameterClass="DeletePlaylistSongInfo" >
+		DELETE FROM user_song WHERE uid=#uid# AND playlist_id=#pId#
+		AND song_id IN
+		<iterate close=")" open="(" conjunction="," property="songIdList">
+				#songIdList[]#
+		</iterate>
+	</delete>
+	
+	
+	<select id="generateRandomUids" parameterClass="RecommendUserInfo" resultClass="java.lang.Long">
+			select o.uid from 
+			(select a.uid,FLOOR(RAND()*500) ra from user_random_id a
+		     where a.uid not  in
+			<iterate close=")" open="(" conjunction="," property="uidList">
+				#uidList[]#
+			</iterate>
+			)
+			o order by o.ra  
+			limit #pagecount#;
+    </select>
+    
+    <select id="getUserPlaylistSongCountOfAlbum" parameterClass="java.lang.Long" resultClass="com.kascend.music2.api3.entity.UserSongAlbum">
+    	SELECT COUNT(song_id) AS songCount,
+    	album_id AS albumId,
+    	playlist_id AS playlistId
+    	FROM user_song 
+    	WHERE song_id >0 
+    	AND album_id >0 
+    	AND playlist_id=#playlistId#
+    	GROUP BY album_id;
+    </select>
+        <select id="getUserSongAlbumByPlaylistIdAndAlbumId" parameterClass="com.kascend.music2.api3.entity.UserSongAlbum"  resultClass="java.lang.Long">
+    	SELECT DISTINCT album_id FROM user_song_album WHERE playlist_id =#playlistId#
+    	AND album_id IN 
+    	<iterate close=")" open="(" conjunction="," property="albumIdList">
+				#albumIdList[]#
+		</iterate>
+    </select>
+    <update id="updateUserSongAlbumByPlaylistIdAndAlbumId" parameterClass="com.kascend.music2.api3.entity.UserSongAlbum">
+    	UPDATE user_song_album SET song_count=#songCount#
+    	WHERE album_id=#albumId# AND playlist_id=#playlistId#
+    </update>
+    <insert id="addUserSongAlbumByPlaylistIdAndAlbumId" parameterClass="com.kascend.music2.api3.entity.UserSongAlbum">
+    	INSERT INTO user_song_album(playlist_id,album_id,song_count) 
+    	VALUES(#playlistId#,#albumId#,#songCount#)
+    </insert>
+    
+    
+    <select id="getUserPlaylistSongCountOfArtist" parameterClass="java.lang.Long" resultClass="com.kascend.music2.api3.entity.UserSongArtist">
+    	SELECT COUNT(song_id) AS songCount,
+    	artist_id AS artistId,
+    	playlist_id AS playlistId
+    	FROM user_song 
+    	WHERE song_id >0 
+    	AND artist_id >0 
+    	AND playlist_id=#playlistId#
+    	GROUP BY artist_id;
+    </select>
+    <select id="getUserPlaylistAlbumCountOfArtist" parameterClass="java.lang.Long" resultClass="com.kascend.music2.api3.entity.UserSongArtist">
+    	SELECT COUNT(album_id) AS albumCount,
+    	artist_id AS artistId,
+    	playlist_id AS playlistId
+    	FROM user_song 
+    	WHERE album_id >0 
+    	AND artist_id >0 
+    	AND playlist_id=#playlistId#
+    	GROUP BY artist_id;
+    </select>
+    <select id="getUserSongArtistByPlaylistIdAndArtistId" parameterClass="com.kascend.music2.api3.entity.UserSongArtist" resultClass="java.lang.Long">
+    	SELECT DISTINCT artist_id FROM user_song_artist WHERE playlist_id =#playlistId#
+    	AND artist_id IN 
+    	<iterate close=")" open="(" conjunction="," property="artistIdList">
+				#artistIdList[]#
+		</iterate>
+    </select>
+    <update id="updateUserSongArtistByPlaylistIdAndArtistId" parameterClass="com.kascend.music2.api3.entity.UserSongArtist">
+    	UPDATE user_song_artist SET album_count=#albumCount#,song_count=#songCount#
+    	WHERE artist_id=#artistId# AND playlist_id=#playlistId#
+    </update>
+    <insert id="addUserSongArtistByPlaylistIdAndArtistId" parameterClass="com.kascend.music2.api3.entity.UserSongArtist">
+    	INSERT INTO user_song_artist(playlist_id,artist_id,album_count,song_count)
+    	VALUES(#playlistId#,#artistId#,#albumCount#,#songCount#)
+    </insert>
+    
+    <update id="clearUserSongArtistByPlaylistId" parameterClass="java.lang.Long" >
+    	update user_song_artist set album_count=0,song_count=0
+    	WHERE playlist_id=#playlistId#;
+    </update>
+    <update id="clearUserSongAlbumByPlaylistId" parameterClass="java.lang.Long" >
+    	update user_song_album set song_count=0
+    	WHERE playlist_id=#playlistId#;
+    </update>
+    
+    <select id="getUserSongCountOfAlbumByAlbumId" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+    	SELECT COUNT(song_id) FROM user_song WHERE playlist_id=#playlistId# AND uid=#uid# AND album_id=#albumId# and song_id >0
+    </select>
+    
+    <select id="getUserAlbumCountOfArtistByArtistId" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+    	SELECT COUNT(album_id) FROM user_song WHERE playlist_id=#playlistId# AND uid=#uid#  AND artist_id=#artistId# and album_id >0
+    </select>
+    
+    <select id="getUserSongCountOfArtistByArtistId" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+    	SELECT COUNT(song_id) FROM user_song WHERE playlist_id=#playlistId#  AND uid=#uid#  AND artist_id=#artistId# and song_id >0
+    </select>
+    
+    <update id="updateUserSongAfterCompare" parameterClass="com.kascend.music2.api3.entity.UserSong">
+    	UPDATE user_song SET song_id=#songId#,
+    	song_title=#songTitle#,
+    	artist_name=#artistName#,
+    	artist_id=#artistId#,
+    	album_id=#albumId#,
+    	album_title=#albumTitle#,
+    	song_thumb=#songThumb#,
+    	duration=#duration#,
+    	has_mv=#hasMv#
+    	WHERE 
+    	playlist_id=#playlistId# 
+    	AND uid=#uid# 
+    	AND song_path=#songPath#
+    </update>
+    <!-- 人气 -->
+    <select id="getUserPopularityCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+    	SELECT popularity FROM user WHERE uid=#uid# LIMIT 1;
+    </select>
+    
+    <update id="updateUserPopularityCount" parameterClass="java.util.HashMap">
+    	UPDATE user SET popularity=#popularityCount#,update_time=SYSDATE() WHERE uid=#uid#
+    </update>
+    
+    
+    
+    <select id="getUserPopularityLogByUidAndType" parameterClass="java.util.HashMap" resultMap="userPopularityLog">
+    	SELECT * FROM user_popularity_log WHERE uid=#uid# AND popularity_type=#type# LIMIT 1;
+    </select>
+    
+    <insert id="addUserPopularityLog" parameterClass="java.util.HashMap">
+    	INSERT INTO user_popularity_log(uid,popularity_type,popularity,log_time) VALUES
+    	(#uid#,#type#,#popularityCount#,unix_timestamp());
+    </insert>
+    
+    <update id="updateUserPopularityLog" parameterClass="java.util.HashMap">
+    	UPDATE user_popularity_log SET popularity=#popularityCount#,log_time=unix_timestamp() WHERE uid=#uid# AND popularity_type=#type#
+    </update>
+    
+     <!-- 活跃度 -->
+    <select id="getUserActivityCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+    	SELECT activity FROM user WHERE uid=#uid# LIMIT 1;
+    </select>
+    
+    <update id="updateUserActivityCount" parameterClass="java.util.HashMap">
+    	UPDATE user SET activity=#activityCount#,update_time=SYSDATE() WHERE uid=#uid#
+    </update>
+    
+    <select id="getTopActivityUids" parameterClass="com.kascend.music2.api3.service.social.info.ListUserInfo" resultClass="java.lang.Long">
+    	SELECT uid FROM user WHERE (status=0 or status=2) AND song_count >10 
+    	ORDER BY activity DESC limit #start#,#pagecount#;
+    </select>
+    
+    <select id="getTopActivityUidsAllCount"  resultClass="java.lang.Integer">
+    	SELECT count(uid) FROM user WHERE (status=0 or status=2) AND song_count >0 
+    </select>
+    
+    <select id="getUserActivityLogByUidAndType" parameterClass="java.util.HashMap" resultMap="userActivityLog">
+    	SELECT * FROM user_activity_log WHERE uid=#uid# AND activity_type=#type# LIMIT 1;
+    </select>
+    
+    <insert id="addUserActivityLog" parameterClass="java.util.HashMap">
+    	INSERT INTO user_activity_log(uid,activity_type,activity,log_time) VALUES
+    	(#uid#,#type#,#activityCount#,unix_timestamp());
+    </insert>
+    
+    <update id="updateUserActivityLog" parameterClass="java.util.HashMap">
+    	UPDATE user_activity_log SET activity=#activityCount#,log_time=unix_timestamp() WHERE uid=#uid# AND activity_type=#type#
+    </update>
+    
+    <insert id="insertUserSnsInvite" parameterClass="java.util.HashMap" >
+    	INSERT INTO user_sns_invite(uid,sns_site,invite_sns_uid,invite_sns_username,create_time)
+    	VALUES(#uid#,#weiboSource#,#snsUid#,#snsUserName#,unix_timestamp());
+    </insert>
+    
+    <select id="getMessageCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+    	SELECT COUNT(*) FROM user_message WHERE message_id=#messageId#
+    </select>
+    
+    <select id="getCommentCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+    	SELECT COUNT(*) FROM user_comment WHERE comment_id=#commentId#
+    </select>
+    
+    <insert id="insertUserMessage" parameterClass="LeaveMessageInfo">
+    	INSERT INTO user_message(uid,from_uid,create_time,status,is_reply,reply_message_id) 
+    	VALUES(#touid#,#uid#,unix_timestamp(),0,#isReply#,#replymessageid#)
+    	<selectKey resultClass="long" keyProperty="messageId">
+  			SELECT LAST_INSERT_ID() AS messageId
+  		</selectKey>
+    </insert>
+    
+    <insert id="insertUserMessageContent" parameterClass="LeaveMessageInfo">
+    	INSERT INTO user_message_content(message_id,message) VALUES(#messageId#,#message#);
+    </insert>
+    
+    <select id="getUserMessageByUid" parameterClass="java.util.HashMap"  resultMap="userMessage">
+    	SELECT um.message_id,
+    	um.uid,
+    	um.from_uid,
+    	um.create_time,
+    	um.status,
+    	um.is_reply,
+    	um.reply_message_id,
+    	umc.message as content
+    	FROM user_message AS um
+    	LEFT JOIN user_message_content AS umc
+    	ON um.message_id=umc.message_id
+    	WHERE um.uid=#uid# and reply_message_id=0
+    	ORDER BY um.create_time DESC
+    	LIMIT #start#,#pagecount#;
+    </select>
+    
+        <select id="getUserMessageAllCountByUid" parameterClass="java.lang.Long"  resultClass="java.lang.Integer">
+    	SELECT COUNT(um.message_id)
+    	FROM user_message AS um
+    	WHERE um.uid=#uid# and reply_message_id=0
+    </select>
+    
+    <select id="getUserMessageByMessageId" parameterClass="java.util.List"  resultMap="userMessage">
+    	SELECT um.message_id,
+    	um.uid,
+    	um.from_uid,
+    	um.create_time,
+    	um.status,
+    	um.is_reply,
+    	um.reply_message_id,
+    	umc.message as content
+    	FROM user_message AS um
+    	LEFT JOIN user_message_content AS umc
+    	ON um.message_id=umc.message_id
+    	WHERE um.reply_message_id IN
+    		<iterate close=")" open="(" conjunction="," >
+				#messageIdList[]#
+		</iterate>
+    </select>
+    
+    <insert id="saveUserPhoto" parameterClass="com.kascend.music2.api3.entity.UserPhoto">
+    	INSERT INTO user_photo(uid,photo_uri,photo_type,small_photo,middle_photo,create_time)
+    	VALUES(#uid#,#photoUri#,#photoType#,#smallPhoto#,#middlePhoto#,unix_timestamp())
+    </insert>
+    
+    <select id="getUserPlaylistListByIds" parameterClass="java.util.List"  resultMap="userPlaylist">
+      	 SELECT *
+      	 FROM user_playlist AS up
+      	 WHERE  up.playlist_id IN 
+    	 <iterate open="(" close=")"  conjunction=","  >
+            	#userPlaylistIds[]#
+       	 </iterate>
+      </select>
+      
+      
+      
+       <select id="getUserPlaylistListById" parameterClass="java.lang.Long" resultMap="userPlaylist">
+      	 SELECT *
+      	 FROM user_playlist AS up
+      	 WHERE up.playlist_id=#userPlaylistId#
+      	 LIMIT 1;
+      </select>
+      
+      <select id="getUserMvList" parameterClass="GetPlaylistInfo" resultMap="userMv">
+      	SELECT  
+      	us.mv_id,
+      	us.mv_title,
+      	us.song_id,
+      	us.artist_id,
+      	us.artist_name,
+      	us.duration,
+      	us.mv_thumb 
+      	FROM user_mv AS us
+      	WHERE us.playlist_id=#playlistid#
+        ORDER BY us.sort_index ASC
+        LIMIT #start#,#pagecount#;
+      </select>
+      
+      <select id="getUserMvListAllCount" parameterClass="GetPlaylistInfo" resultClass="java.lang.Integer">
+      	SELECT  
+      	count(us.mv_id)
+      	FROM user_mv AS us
+      	WHERE us.playlist_id=#playlistid#
+        LIMIT 1;
+      </select>
+      
+       <select id="checkSongIdIfInUserSong" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+       		select id  from user_song  where song_id=#songId# and uid=#uid# limit 1;
+       </select>
+       
+       <select id="checkMetadataIfInUserSong" parameterClass="StatInfo" resultClass="java.lang.Long">
+       		SELECT id FROM user_song WHERE uid=#uid# AND song_title=#song# AND artist_name=#artist# AND album_title=#album# LIMIT 1; 
+       </select>
+       
+        <select id="getUserSongBySongIdAndPlaylistId" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+        	SELECT id FROM user_song WHERE song_id=#songId# AND uid=#uid# AND playlist_id=#playlistId# LIMIT 1;
+        </select>
+        
+        <update id="updateUserSongDataFrom" parameterClass="java.util.HashMap">
+        	UPDATE user_song SET data_from=#dataFrom# WHERE uid=#uid# AND playlist_id=#playlistId# AND song_id=#songId#
+        </update>
+        
+       <select id="getUserSongUdataId" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+	   	  SELECT COUNT(*) FROM user_song_udata WHERE id=#id#
+	   </select>
+	   
+	   <update id="updateUserSongUdata" parameterClass="java.lang.Long">
+	   		UPDATE user_song_udata SET play_times=play_times+1,last_play_time=unix_timestamp() WHERE id=#id#
+	   </update>
+	   
+	   <insert id="saveUserSongUdata" parameterClass="java.lang.Long">
+	   	  INSERT INTO user_song_udata(id,play_times,last_play_time) values (#id#,1,unix_timestamp())
+	   </insert>
+</sqlMap>

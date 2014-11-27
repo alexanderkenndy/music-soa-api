@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/k004/!svn/ver/3169/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/impl
+END
+MetadataServiceHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/k004/!svn/ver/3169/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/impl/MetadataServiceHelper.java
+END
+MetadataServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/k004/!svn/ver/3146/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/impl/MetadataServiceImpl.java
+END
+CacheMetadataServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/k004/!svn/ver/3146/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/metadata/impl/CacheMetadataServiceImpl.java
+END

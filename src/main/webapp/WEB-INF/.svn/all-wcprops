@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/k004/!svn/ver/3052/trunk/music2/music2-api3/src/main/webapp/WEB-INF
+END
+applicationContext-social.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/k004/!svn/ver/2719/trunk/music2/music2-api3/src/main/webapp/WEB-INF/applicationContext-social.xml
+END
+conf.properties
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/k004/!svn/ver/2825/trunk/music2/music2-api3/src/main/webapp/WEB-INF/conf.properties
+END
+oscache.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/k004/!svn/ver/1000/trunk/music2/music2-api3/src/main/webapp/WEB-INF/oscache.properties
+END
+version.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/k004/!svn/ver/2893/trunk/music2/music2-api3/src/main/webapp/WEB-INF/version.properties
+END
+sqlMapConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/k004/!svn/ver/2964/trunk/music2/music2-api3/src/main/webapp/WEB-INF/sqlMapConfig.xml
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/k004/!svn/ver/2982/trunk/music2/music2-api3/src/main/webapp/WEB-INF/applicationContext-service.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/k004/!svn/ver/2602/trunk/music2/music2-api3/src/main/webapp/WEB-INF/applicationContext.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/k004/!svn/ver/1000/trunk/music2/music2-api3/src/main/webapp/WEB-INF/log4j.properties
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/k004/!svn/ver/3052/trunk/music2/music2-api3/src/main/webapp/WEB-INF/web.xml
+END

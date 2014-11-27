@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		useStatementNamespaces="true" />
+	<sqlMap resource="com/kascend/interfaceframework/dao/auth.xml" />
+	<sqlMap resource="com/kascend/frameworkcommons/config/config.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/security.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/metadata.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/metadata_log.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/social.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/social_log.xml" />
+	<sqlMap resource="com/kascend/music2/api3/dao/user.xml" />
+</sqlMapConfig>

@@ -1,0 +1,49 @@
+10
+
+dir
+3169
+http://vpn.kascend.com:999/svn/k004/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3
+http://vpn.kascend.com:999/svn/k004
+
+
+
+2012-08-14T03:50:17.250000Z
+3169
+xiaofa.zhang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+cf78d847-3c13-e04c-9fab-f857fb278a5a
+
+service
+dir
+
+cache
+dir
+
+dao
+dir
+
+entity
+dir
+
+web
+dir
+
+exception
+dir
+
+interceptor
+dir
+

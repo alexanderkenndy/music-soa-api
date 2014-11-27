@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="security">
+    <select id="getIpList" parameterClass="int" resultClass="java.util.HashMap">
+         SELECT id, ip, status,create_time FROM user_abnormal_ip where status=#value#;
+    </select>
+    <update id="updateIpStatus" parameterClass="java.util.Map">
+    	update  user_abnormal_ip set status=#status# where id=#id#
+    </update>
+	
+	<parameterMap id="queryAbnormalIpParams" class="java.util.Map">
+       <parameter property="intervalTime" javaType="int" jdbcType="INTEGER" />
+       <parameter property="accessCount"  javaType="int" jdbcType="INTEGER" />
+    </parameterMap>
+    <procedure id="queryAbnormalIp" parameterMap="queryAbnormalIpParams"  resultClass="java.util.HashMap" >
+       { call query_abnormal_ip(?, ?) }
+    </procedure>
+    
+    <select id="getUserList" parameterClass="int" resultClass="java.util.HashMap">
+         SELECT id, uid, status,create_time FROM user_abnormal_user where status=#value#;
+    </select>
+    <update id="updateUserStatus" parameterClass="java.util.Map">
+    	update  user_abnormal_user set status=#status# where id=#id#
+    </update>
+	
+	<parameterMap id="queryAbnormalUserParams" class="java.util.Map">
+       <parameter property="intervalTime" javaType="int" jdbcType="INTEGER" />
+       <parameter property="accessCount"  javaType="int" jdbcType="INTEGER" />
+    </parameterMap>
+    <procedure id="queryAbnormalUser" parameterMap="queryAbnormalUserParams"  resultClass="java.util.HashMap" >
+       { call query_abnormal_user(?, ?) }
+    </procedure>
+	
+  </sqlMap>

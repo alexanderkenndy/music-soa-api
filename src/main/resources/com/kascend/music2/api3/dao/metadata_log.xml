@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="metadata_log">
+    <select id="getAppId" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+         SELECT appid FROM application WHERE app_key=#appkey# limit 1;
+    </select>
+    <insert id="InsertRequest" parameterClass="java.util.Map">
+	    insert into operation_log (uid, start_time, method, end_time, result, expend_time, ip,appid,ip_region)
+	    values(#uid#,#startTime#,#method#,#endTime#,#result#,#expendTime#,#ip#,#appid#,null);
+	    <selectKey resultClass="long" keyProperty="oid">
+  			SELECT LAST_INSERT_ID() AS oid
+  		</selectKey>
+	</insert>
+	<insert id="insertRequest" parameterClass="java.util.Map">
+	    insert  into operation_log (uid, start_time, method, end_time, result, expend_time, ip,appid,ip_region, verid)
+	    values(#uid#,#startTime#,#method#,#endTime#,#result#,#expendTime#,#ip#,#appid#,null, #verid#);
+	    <selectKey resultClass="long" keyProperty="oid">
+  			SELECT LAST_INSERT_ID() AS oid
+  		</selectKey>
+	</insert>
+	
+	<insert id="insertRequestParameters" parameterClass="java.util.Map">
+	    insert  into operation_log_parameters (oid, parameters)
+	    values(#oid#, #parameters#);
+	</insert>
+	
+	<insert id="saveBillboardLog" parameterClass="java.util.Map">
+			INSERT INTO billboard_log(billboard_id,uid,log_time,sub_billboard_id) 
+			VALUES(#billboardid#,#uid#,#logTime#,#subbillboardid#);
+	</insert>
+	
+	<insert id="saveSongMvLog" parameterClass="java.util.HashMap">
+      	INSERT INTO song_mv_log(uid,song_id,log_time,mv_id) VALUES(#uid#,#songId#,#logTime#,#mvId#);
+    </insert>
+    
+      <select id="getSearchKeyWord" parameterClass="java.util.Map" resultClass="java.lang.Long">
+            SELECT sk.id FROM search_keyword_log AS sk WHERE sk.keyword=#keyword# and
+            sk.search_type=#searchtype# limit 1
+      </select>
+      <insert id="saveSearchKeyWord" parameterClass="java.util.Map">
+            INSERT INTO search_keyword_log(keyword,search_count,create_time,search_type) VALUES(#keyword#,1,#createTime#,#searchtype#)    
+      </insert>
+      <update id="updateSearchKeyWord" parameterClass="java.util.Map">
+            update search_keyword_log set search_count=search_count+1 where id=#id#
+      </update>
+      
+      <insert id="SavesongLog" parameterClass="java.util.Map">
+            INSERT INTO song_op_log(song_id,uid,action,create_time) VALUES(#songid#,#uid#,#action#,#createTime#);
+      </insert>
+      
+      <insert id="SaveStatLog" parameterClass="com.kascend.music2.api3.service.metadata.info.StatInfo">
+            INSERT INTO song_op_log(song_id,uid,action,value1,value2,create_time,source_id,source_type,location_x,location_y) 
+            VALUES(#songid#,#uid#,#operateType#,#ismv#,#network#,#createTime#,#sourceid#,#sourcetype#,#x#,#y#);
+      </insert>
+      
+      <insert id="SaveFeedBackSongLog" parameterClass="com.kascend.music2.api3.service.metadata.info.FeedBackSongInfo">
+            INSERT INTO song_op_log(song_id,uid,action,value1,value2,value3,value4,create_time) 
+            VALUES(#songid#,#uid#,#operateType#,#ismv#,#network#,#failure#,#param#,#createTime#);
+      </insert>
+      
+      <select id="getSongInfoCountByKeyWords" parameterClass="java.util.Map" resultClass="com.kascend.music2.api3.entity.GetSongInfoLog">
+			SELECT log_id AS songid,count(log_id) AS songscount FROM getsonginfo_log WHERE 1=1 
+			<isNotNull prepend="and" property="songTitle">
+			      song=#songTitle# 
+			</isNotNull>
+			<isNotNull prepend="and" property="artistName">
+			      artist=#artistName# 
+			</isNotNull>
+			<isNotNull prepend="and" property="albumTitle">
+			       album=#albumTitle# 
+			</isNotNull>
+				<isNotNull prepend="and" property="fileName">
+			      filename=#fileName#;
+			</isNotNull>
+		</select>
+		
+		<update id="updateSongInfoByKeyWords" parameterClass="java.util.Map">
+		   UPDATE getsonginfo_log SET result_size=#resultSize#,log_count=log_count+1,log_time=unix_timestamp() WHERE log_id=#logId#;
+		</update>
+		
+		<insert id="addSongInfoByKeyWords" parameterClass="java.util.Map">
+			INSERT INTO getsonginfo_log(song,artist,album,filename,result_size,log_count,log_time) 
+			VALUES(#songTitle#,#artistName#,#albumTitle#,#fileName#,#resultSize#,1,unix_timestamp());
+		</insert>
+		
+		<insert id="saveDownLoadLog" parameterClass="java.util.Map">
+            INSERT INTO song_download_log(song_id,uid,create_time) VALUES(#songid#,#uid#,now());
+        </insert>
+</sqlMap>

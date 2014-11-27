@@ -1,0 +1,7 @@
+datasource.url=jdbc:mysql://192.168.0.167:3306/music2_db?useUnicode=true&characterEncoding=utf-8
+datasource.userName=dev
+datasource.password=dev
+
+userRecommend.serviceUrl=http://192.168.0.163:8208/music-recommend
+
+log.maxThreads=3

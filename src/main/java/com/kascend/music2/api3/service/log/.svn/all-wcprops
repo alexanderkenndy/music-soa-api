@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/k004/!svn/ver/2960/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log
+END
+LogCommitThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/k004/!svn/ver/2514/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log/LogCommitThread.java
+END
+MetadataLogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/k004/!svn/ver/2960/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log/MetadataLogService.java
+END
+LogCommitExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/k004/!svn/ver/2514/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log/LogCommitExecutor.java
+END
+BaseLogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/k004/!svn/ver/1283/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log/BaseLogService.java
+END
+SocialLogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/k004/!svn/ver/1283/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/log/SocialLogService.java
+END

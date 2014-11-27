@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/k004/!svn/ver/3143/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response
+END
+LikeResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/k004/!svn/ver/1283/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/LikeResponse.java
+END
+WeiboBondAccountResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/k004/!svn/ver/1828/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/WeiboBondAccountResponse.java
+END
+UserSnsShareResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/k004/!svn/ver/2937/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/UserSnsShareResponse.java
+END
+ItemListResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/k004/!svn/ver/1283/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/ItemListResponse.java
+END
+MyAttentionAlbumResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/k004/!svn/ver/1954/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/MyAttentionAlbumResponse.java
+END
+CommentListResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/k004/!svn/ver/1605/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/CommentListResponse.java
+END
+UserPlaylistResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/k004/!svn/ver/2153/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/UserPlaylistResponse.java
+END
+LastSyncPlaylistTimeResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/k004/!svn/ver/2312/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/LastSyncPlaylistTimeResponse.java
+END
+LeaveMessageResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/k004/!svn/ver/2937/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/LeaveMessageResponse.java
+END
+CommentResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/k004/!svn/ver/1540/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/CommentResponse.java
+END
+FollowResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/k004/!svn/ver/1347/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/FollowResponse.java
+END
+ShareResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/k004/!svn/ver/1534/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/ShareResponse.java
+END
+UserSnsResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/k004/!svn/ver/2842/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/UserSnsResponse.java
+END
+DiscoveryAlbumOfSongResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/k004/!svn/ver/1932/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/DiscoveryAlbumOfSongResponse.java
+END
+UserListResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/k004/!svn/ver/1932/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/UserListResponse.java
+END
+DeletePlaylistSongResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/k004/!svn/ver/2312/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/DeletePlaylistSongResponse.java
+END
+UserResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/k004/!svn/ver/1954/trunk/music2/music2-api3/src/main/java/com/kascend/music2/api3/service/social/response/UserResponse.java
+END

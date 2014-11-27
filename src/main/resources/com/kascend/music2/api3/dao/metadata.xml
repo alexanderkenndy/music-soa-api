@@ -1,0 +1,2230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="metadata">
+	<typeAlias alias="GetRandomSongInfo" type="com.kascend.music2.api3.service.metadata.info.GetRandomSongInfo"/>
+	
+	<typeAlias alias="TopInfo" type="com.kascend.music2.api3.service.metadata.info.TopInfo"/>
+	
+	<typeAlias alias="SearchInfo" type="com.kascend.music2.api3.service.metadata.info.SearchInfo"/>
+	
+	<typeAlias alias="GetSimilarSongInfo" type="com.kascend.music2.api3.service.metadata.info.GetSimilarSongInfo"/>
+	
+	<typeAlias alias="ListBillboardInfo" type="com.kascend.music2.api3.service.metadata.info.ListBillboardInfo"/>
+	
+	
+	<typeAlias alias="GetMvUriInfo" type="com.kascend.music2.api3.service.metadata.info.GetMvUriInfo"/>
+	
+	<typeAlias alias="GetSongInfo" type="com.kascend.music2.api3.service.metadata.info.GetSongInfo"/>
+	
+    <typeAlias alias="ListMvInfo" type="com.kascend.music2.api3.service.metadata.info.ListMvInfo"/>
+    
+    <typeAlias alias="LookupMvInfo" type="com.kascend.music2.api3.service.metadata.info.LookupMvInfo"/>
+	
+	<typeAlias alias="DiscoveryInfo" type="com.kascend.music2.api3.service.metadata.info.DiscoveryInfo"/>
+	
+	<typeAlias alias="GetSearchKeywordInfo" type="com.kascend.music2.api3.service.metadata.info.GetSearchKeywordInfo"/>
+	
+	<typeAlias alias="GetSongsOfArtistInfo" type="com.kascend.music2.api3.service.metadata.info.GetSongsOfArtistInfo"/>
+	
+	<typeAlias alias="GetAlbumInfo" type="com.kascend.music2.api3.service.metadata.info.GetAlbumInfo"/>
+	
+	<typeAlias alias="GetSongsOfAlbumInfo" type="com.kascend.music2.api3.service.metadata.info.GetSongsOfAlbumInfo"/>
+	
+	<typeAlias alias="GetAlbumsOfArtistInfo" type="com.kascend.music2.api3.service.metadata.info.GetAlbumsOfArtistInfo"/>
+	
+	<typeAlias alias="GetAlbumsOfSongInfo" type="com.kascend.music2.api3.service.metadata.info.GetAlbumsOfSongInfo"/>
+	
+	<typeAlias alias="RecommendArtistInfo" type="com.kascend.music2.api3.service.metadata.info.RecommendArtistInfo"/>
+	
+	<typeAlias alias="GetDownloadUriInfo" type="com.kascend.music2.api3.service.metadata.info.GetDownloadUriInfo"/>
+	
+	<typeAlias alias="RecommendalbumInfo" type="com.kascend.music2.api3.service.metadata.info.RecommendalbumInfo"/>
+	
+	<typeAlias alias="CommonArtistInfo" type="com.kascend.music2.api3.service.metadata.info.CommonArtistInfo"/>
+	<typeAlias alias="CommonGetAlbumInfo" type="com.kascend.music2.api3.service.metadata.info.CommonGetAlbumInfo"/>
+	
+	<typeAlias alias="SongUriListInfo" type="com.kascend.music2.api3.service.metadata.info.SongUriListInfo"/>
+	
+	<resultMap class="com.kascend.music2.api3.entity.SubBillboard" id="SubBillboard">
+         <result property="subBillboardId" column="sub_billboard_id" javaType="java.lang.Long"/>
+         <result property="billboardTitle" column="billboard_title" javaType="java.lang.String"/>
+         <result property="updateTime" column="update_time" jdbcType="DATETIME" javaType="java.sql.Timestamp"/>
+         <result property="size" column="billboard_size" javaType="java.lang.Integer"/>
+         <result property="subBillboardTitle" column="sub_billboard_title" javaType="java.lang.String"/>
+         <result property="hasListPic" column="has_list_pic" javaType="java.lang.Integer" />
+    </resultMap>
+    
+    <resultMap class="com.kascend.music2.api3.entity.SubBillboard" id="listSubBillboard">
+       <result property="subBillboardId" column="sub_billboard_id" javaType="java.lang.Long"/>
+       <result property="subBillboardTitle" column="sub_billboard_title" javaType="java.lang.String"/>
+    </resultMap>
+    	<resultMap class="com.kascend.music2.api3.entity.Billboard" id="Billboard">
+         <result property="billboardId" column="sub_billboard_id" javaType="java.lang.Long"/>
+         <result property="subBillboardId" column="sub_billboard_id" javaType="java.lang.Long"/>
+         <result property="billboardTitle" column="billboard_title" javaType="java.lang.String"/>
+         <result property="updateTime" column="update_time" jdbcType="DATETIME" javaType="java.sql.Timestamp"/>
+         <result property="billboardSize" column="billboard_size" javaType="java.lang.Integer"/>
+    </resultMap>
+    <resultMap class="com.kascend.music2.api3.entity.SongMvPic" id="songMvPic">
+    	 <result property="mvId" column="mv_id" />
+    	 <result property="picUri" column="pic_uri" />
+    	 <result property="smallPic" column="small_pic" />
+    	 <result property="middlePic" column="middle_pic" />
+    </resultMap>
+    
+	<resultMap class="com.kascend.music2.api3.entity.SubBillboardMv" id="SubBillboardMv">
+         <result property="subBillboardId" column="sub_billboard_id" />
+         <result property="billboardTitle" column="billboard_title" />
+         <result property="updateTime" column="update_time" />
+         <result property="size" column="billboard_size" />
+         <result property="subBillboardTitle" column="sub_billboard_title" />
+         <result property="hasListPic" column="has_list_pic"  />
+    </resultMap>
+ 
+    <resultMap class="com.kascend.music2.api3.entity.SongMv" id="songMv">
+         <result column="mv_id" property="mvId" />
+         <result column="mv_title" property="mvTitle" />
+         <result column="song_id" property="songId" />
+         <result column="artist_ids" property="artistIds" />
+         <result column="artist_names" property="artistNames" />
+         <result column="duration" property="duration" />
+    </resultMap>
+    
+    <resultMap class="com.kascend.music2.api3.entity.SongFile" id="songFile">
+         <result column="song_file_id" property="songFileId" />
+         <result column="rate" property="rate" />
+         <result column="song_id" property="songId" />
+    </resultMap>
+
+    <resultMap class="com.kascend.music2.api3.entity.Lyric" id="lyricInfo">
+         <result column="song_id" property="songId" />
+         <result column="lyric_text" property="lyricText" />
+    </resultMap>
+
+    <resultMap class="com.kascend.music2.api3.entity.AlbumPic" id="albumPic">
+         <result column="album_pic_id" property="albumPicId" />
+         <result column="album_id" property="albumId" />
+         <result column="pic_uri" property="picUri" />
+         <result column="sort_index" property="sortIndex" />
+         <result column="pic_type" property="picType" />
+         <result column="small_pic" property="smallPic" />
+         <result column="middle_pic" property="middlePic" />
+    </resultMap>
+    
+    
+    <resultMap class="com.kascend.music2.api3.entity.ArtistPic" id="artistPic">
+         <result column="artist_pic_id" property="artistPicId" />
+         <result column="artist_id" property="artistId" />
+         <result column="pic_uri" property="picUri" />
+         <result column="sort_index" property="sortIndex" />
+         <result column="pic_type" property="picType" />
+         <result column="small_pic" property="smallPic" />
+         <result column="middle_pic" property="middlePic" />
+    </resultMap>
+    
+    <resultMap class="com.kascend.music2.api3.entity.SongMv" id="listSongMv">
+         <result column="mv_id" property="mvId" />
+         <result column="mv_title" property="mvTitle" />
+         <result column="song_id" property="songId" />
+         <result column="artist_id" property="artistId" />
+         <result column="artist_name" property="artistName" />
+         <result column="duration" property="duration" />
+         <result column="pic_uri" property="songMvThumb" />
+    </resultMap>
+    <resultMap id="song" class="com.kascend.music2.api3.entity.Song" >
+    	 <result property="songId" column="song_id" />
+    	 <result property="songTitle" column="song_title" />
+    	 <result property="songRegion" column="song_region" />
+    	 <result property="albumTitle" column="album_title" />
+    	 <result property="albumId" column="album_id" />
+    	 <result property="artistName" column="artist_name" />
+    	 <result property="artistId" column="artist_id" />
+    	 <result property="songDuration" column="song_duration" />
+    	 <result property="googleSongId" column="google_song_id" />
+    	 <result property="hasMv" column="has_mv" />
+    	 <result property="songThumbUri" column="song_thumb_uri"/>
+    	 <result property="playTimes" column="play_times"/>
+    </resultMap>
+    
+        <resultMap id="sortSong" class="com.kascend.music2.api3.entity.Song" >
+    	 <result property="songId" column="song_id" />
+    	 <result property="songTitle" column="song_title" />
+    	 <result property="songRegion" column="song_region" />
+    	 <result property="albumTitle" column="album_title" />
+    	 <result property="albumId" column="album_id" />
+    	 <result property="artistName" column="artist_name" />
+    	 <result property="artistId" column="artist_id" />
+    	 <result property="songDuration" column="song_duration" />
+    	 <result property="googleSongId" column="google_song_id" />
+    	 <result property="hasMv" column="has_mv" />
+    	 <result property="songThumbUri" column="song_thumb_uri"/>
+    	 <result property="playTimes" column="play_times"/>
+    	 <result property="sortIndex" column="sort_index"/>
+    </resultMap>
+    
+    <resultMap id="songModel" class="com.kascend.music2.api3.entity.Song" >
+    	 <result property="songId" column="song_id" />
+    	 <result property="songTitle" column="song_title" />
+    	 <result property="hasMv" column="has_mv" />
+    	 <result property="defaultLyric" column="default_lyric"/>
+    </resultMap>
+    <resultMap id="artist" class="com.kascend.music2.api3.entity.Artist" >
+        <result property="artistId" column="artist_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistRegion" column="artist_region" />
+        <result property="artistType" column="artist_type" />
+        <result property="publishedAlbums" column="published_albums" />
+        <result property="publishedSongs" column="published_songs" />
+        <result property="publishedMvs" column="published_mvs" />
+        <result property="artistDescription" column="artist_description" />
+        <result property="artistThumbnail" column="artist_thumbnail" />
+    </resultMap>
+    
+    <resultMap id="artistAndUid" class="com.kascend.music2.api3.entity.Artist" >
+        <result property="artistId" column="artist_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistEnglishName" column="artist_english_name" />
+        <result property="artistRegion" column="artist_region" />
+        <result property="artistType" column="artist_type" />
+        <result property="publishedAlbums" column="published_albums" />
+        <result property="publishedSongs" column="published_songs" />
+        <result property="publishedMvs" column="published_mvs" />
+        <result property="artistDescription" column="artist_description" />
+        <result property="artistThumbnail" column="artist_thumbnail" />
+        <result property="uid" column="uid" />
+    </resultMap>
+    
+    <resultMap id="albumInfo" class="com.kascend.music2.api3.entity.Album" >
+        <result property="albumTitle" column="album_title" />
+        <result property="albumId" column="album_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistId" column="artist_id" />
+        <result property="albumBio" column="album_bio" />
+        <result property="albumPublishTime" column="album_publish_time" />
+        <result property="albumThumbUri" column="album_thumb_uri" />
+        <result property="publishedSongs" column="published_songs" />
+    </resultMap>
+    
+    <resultMap id="specialAlbumInfo" class="com.kascend.music2.api3.entity.Album" >
+        <result property="albumTitle" column="album_title" />
+        <result property="albumId" column="album_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistId" column="artist_id" />
+        <result property="albumBio" column="album_bio" />
+        <result property="albumPublishTime" column="album_publish_time" />
+        <result property="albumThumbUri" column="album_thumb_uri" />
+        <result property="publishedSongs" column="published_songs" />
+        <result property="listenedUsersCount" column="user_times" />
+    </resultMap>
+    
+    <resultMap id="artistInfo" class="com.kascend.music2.api3.entity.Artist" >
+        <result property="artistId" column="artist_id" />
+        <result property="artistName" column="artist_name" />
+        <result property="artistEnglishName" column="artist_english_name" />
+        <result property="artistRegion" column="artist_region" />
+        <result property="artistType" column="artist_type" />
+        <result property="publishedAlbums" column="published_albums" />
+        <result property="publishedSongs" column="published_songs" />
+        <result property="publishedMvs" column="published_mvs" />
+        <result property="artistDescription" column="artist_description" />
+        <result property="artistUri" column="artist_uri" />
+        <result property="artistThumbnail" column="artist_thumbnail" />
+    </resultMap>
+    
+     <resultMap id="userInfo" class="com.kascend.music2.api3.entity.User">
+			 <result property="uid" column="uid" />
+			 <result property="nickname" column="nickname" />
+			 <result property="headIcon" column="head_icon" />
+     </resultMap>
+     
+     <resultMap id="SongUri" class="com.kascend.music2.api3.entity.SongUri">
+			 <result property="suId" column="su_id" />
+			 <result property="songId" column="song_id" />
+			 <result property="songUri" column="song_uri" />
+			 <result property="dataFrom" column="data_from" />
+     </resultMap>
+      
+	
+	<select id="getSubBillboardBySubBillboardId" parameterClass="TopInfo" 
+	   resultMap="SubBillboard">
+	    SELECT b.billboard_title, b.billboard_size,  sba.sub_billboard_id, sba.sub_billboard_title, sba.update_time
+	    <isEqual property="type" prepend=" ," compareValue="0">
+         sba.has_list_pic
+        </isEqual>
+        <isNotEqual property="type" prepend=" ," compareValue="0">
+         0  as  has_list_pic
+        </isNotEqual>
+	     FROM 
+        <isEqual property="type" prepend=" " compareValue="0">
+          sub_billboard_song AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="1">
+          sub_billboard_album AS sba
+        </isEqual>
+         <isEqual property="type" prepend=" " compareValue="2">
+          sub_billboard_artist AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="4">
+          sub_billboard_mv AS sba
+        </isEqual>
+        JOIN billboard AS b ON b.billboard_id=sba.billboard_id
+        JOIN billboard_mp_app AS bma ON bma.billboard_id=b.billboard_id
+        WHERE sba.sub_billboard_id=#subbillboardid# and  sba.status=1
+        AND bma.appid=#appid#
+        LIMIT 1
+	</select>
+	
+		<select id="getSubBillboardBySubBillboardIdOfMv" parameterClass="TopInfo" 
+	   resultMap="SubBillboard">
+	    SELECT b.billboard_title, b.billboard_size,  sba.sub_billboard_id, sba.sub_billboard_title, sba.update_time
+	    <isEqual property="type" prepend=" ," compareValue="4">
+         sba.has_list_pic
+        </isEqual>
+        <isNotEqual property="type" prepend=" ," compareValue="4">
+         0  as  has_list_pic
+        </isNotEqual>
+	     FROM 
+        <isEqual property="type" prepend=" " compareValue="0">
+          sub_billboard_song AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="1">
+          sub_billboard_album AS sba
+        </isEqual>
+         <isEqual property="type" prepend=" " compareValue="2">
+          sub_billboard_artist AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="4">
+          sub_billboard_mv AS sba
+        </isEqual>
+        JOIN billboard AS b ON b.billboard_id=sba.billboard_id
+        JOIN billboard_mp_app AS bma ON bma.billboard_id=b.billboard_id
+        WHERE sba.sub_billboard_id=#subbillboardid# and  sba.status=1
+        AND bma.appid=#appid#
+        limit 1;
+	</select>
+	
+	<select id="getSubBillboardSongCount" parameterClass="java.lang.Long" 
+      resultClass="java.lang.Integer">
+      SELECT count(bms.song_id)
+      FROM billboard_mp_song AS bms 
+      JOIN song AS s ON s.song_id=bms.song_id  
+      WHERE bms.sub_billboard_id=#subBillboardId#  AND (s.status=1 OR s.status=6)
+      and s.is_upload=1
+    </select>
+    
+    <select id="getSubBillboardSongList"
+		parameterClass="TopInfo"
+		resultClass="com.kascend.music2.api3.entity.Song">
+	    SELECT s.song_title songTitle
+	    ,  s.song_id songId
+	    ,  s.song_region songRegion
+	    ,  s.album_title albumTitle
+	    ,  s.album_id  albumId
+	    ,  s.artist_name artistName
+	    , s.artist_id artistId
+	    , s.song_duration songDuration
+		, s.google_song_id googleSongId
+		, s.has_mv as hasMv
+		, bms.value1 as isnew
+		, IFNULL(su.play_times,0) as playTimes
+		<isEqual prepend="," property="albumartflag" compareValue="1"> 
+		 s.song_thumb_uri songThumbUri
+		</isEqual>
+		<isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		  null as  songThumbUri
+		</isNotEqual>
+		FROM song AS s 
+		LEFT JOIN song_udata AS su ON s.song_id=su.song_id 
+		JOIN billboard_mp_song AS bms ON bms.song_id=s.song_id 
+	    WHERE bms.sub_billboard_id=#subbillboardid#
+		AND (s.status=1 OR s.status=6)
+		AND s.is_upload=1
+		 ORDER BY bms.position
+		LIMIT #start#,#pagecount#
+    </select>
+	    <select id="getSubBillboardAlbumList"
+		parameterClass="TopInfo"
+		resultMap="albumInfo">
+	    SELECT
+	        al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        al.published_songs
+	    <isEqual prepend="," compareValue="1" property="bioflag"> 
+		    al.album_bio
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag"> 
+		    null AS album_bio
+		</isNotEqual>
+		<isEqual prepend="," property="albumartflag" compareValue="1"> 
+		 al.album_thumb_uri 
+		</isEqual>
+		<isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		  null as  album_thumb_uri
+		</isNotEqual>
+		FROM album AS al  
+		JOIN billboard_mp_album AS bma ON bma.album_id=al.album_id 
+	    WHERE bma.sub_billboard_id=#subbillboardid#
+		AND (al.status=1 OR al.status=6)
+        And al.has_uploaded=1
+        AND al.published_songs >0
+		ORDER BY bma.position
+		LIMIT #start#,#pagecount#
+    </select>
+	<select id="getSubBillboardArtistCount" parameterClass="java.lang.Long" 
+       resultClass="java.lang.Integer">
+      SELECT COUNT(bms.artist_id) 
+      FROM billboard_mp_artist AS bms JOIN  artist AS a ON a.artist_id=bms.artist_id
+      WHERE bms.sub_billboard_id=#billboardid# AND (a.status=1 OR a.status=6)
+      and a.has_uploaded=1
+      limit 1
+    </select>
+    <select id="getSubBillboardAlbumCount" parameterClass="java.lang.Long" 
+       resultClass="java.lang.Integer">
+      SELECT COUNT(bma.album_id) 
+      FROM billboard_mp_album AS bma JOIN  album AS al ON al.album_id=bma.album_id
+      WHERE bma.sub_billboard_id=#billboardid# AND (al.status=1 OR al.status=6)
+      and al.has_uploaded=1
+      AND al.published_songs >0
+      limit 1
+    </select>
+   <select id="getSubBillboardArtistList" parameterClass="TopInfo"
+		resultMap="artist">
+        SELECT DISTINCT  a.artist_name ,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs 
+		<isEqual prepend="," compareValue="1" property="bioflag">
+		    a.artist_description
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag">
+		    NULL AS artist_description
+		</isNotEqual>
+		<isEqual prepend="," compareValue="1" property="artistartflag">
+		    a.artist_thumbnail
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="artistartflag">
+		    NULL AS artist_thumbnail
+		</isNotEqual>
+		FROM artist
+		AS a 
+        JOIN billboard_mp_artist AS bma ON bma.artist_id=a.artist_id
+		WHERE  bma.sub_billboard_id=#subbillboardid#
+        AND (a.status=1 OR a.status=6)
+        And a.has_uploaded=1
+		ORDER BY bma.position
+		LIMIT #start#,#pagecount#
+      </select>
+       <select id="getArtistInfoArtistInfo" parameterClass="java.lang.Long" resultMap="artistInfo">
+            SELECT  
+            a.artist_name ,
+            a.artist_english_name  ,
+            a.artist_id ,
+            a.published_albums  , 
+			a.published_songs  ,
+			a.published_mvs ,
+            a.artist_type,
+			a.artist_region,
+		    a.artist_description ,
+		    a.artist_uri 
+			FROM artist
+			AS a 
+			WHERE a.artist_id=#artistid#
+			AND (a.status=1 OR a.status=6)
+	  		LIMIT 1;
+        </select>
+      <select id="getSearchArtistInfoByKeyName" parameterClass="SearchInfo"
+		resultMap="artist">
+     	SELECT  a.artist_name ,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs 
+		<isEqual prepend="," compareValue="1" property="bioflag">
+		    a.artist_description 
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag">
+		    NULL AS artist_description
+		</isNotEqual>
+		<isEqual prepend="," compareValue="1" property="artistartflag">
+		    a.artist_thumbnail 
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="artistartflag">
+		    NULL AS artist_thumbnail
+		</isNotEqual>
+		    FROM artist AS a
+			WHERE  a.artist_name LIKE #keyname#
+         	AND (a.status=1 OR a.status=6)
+          	AND a.has_uploaded=1
+          	AND a.published_songs >0
+            LIMIT #start#,#pagecount#;
+      </select>
+      <select id="getSearchArtistInfoArtistsCount" parameterClass="SearchInfo"
+		resultClass="java.lang.Integer">
+      		SELECT COUNT(a.artist_id)
+		    FROM artist AS a
+			WHERE  a.artist_name LIKE #keyname#
+         	AND (a.status=1 OR a.status=6)
+          	AND a.has_uploaded=1
+          	AND a.published_songs >0
+            LIMIT 1;
+      </select>
+      
+      
+       <select id="generateRandomsSongIds" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+			select r.song_id from(SELECT DISTINCT song_id,FLOOR(RAND()*5000000) ra from song_random_id r
+		 	where 1=1 
+		 	<isEqual prepend="AND" property="mvflag" compareValue="1">
+				r.has_mv=1
+			</isEqual>
+			) r order by r.ra 
+		 	limit #pagecount#;
+		</select>
+			
+	<select id="getRandomSongInfo"  parameterClass="GetRandomSongInfo" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) AS play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON s.song_id=su.song_id
+			WHERE  s.song_id IN
+			 <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+         	</iterate>
+			<isNotEqual prepend="AND" property="mvflag" compareValue="0">
+				s.has_mv=1
+			</isNotEqual>
+			AND (s.status=1 OR s.status=6)
+			AND s.is_upload=1
+      		limit #pagecount#;
+	</select>
+	
+        <select id="getCommonSongListBySongIdList"  parameterClass="GetSimilarSongInfo" resultMap="song">
+           SELECT  DISTINCT
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv ,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON s.song_id=su.song_id
+		    WHERE (s.status=1 OR s.status=6)
+		    AND s.song_id IN 
+		    <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+            </iterate>
+		    AND s.is_upload=1
+		    LIMIT #start#,#pagecount#;
+        </select>
+        
+        <select id="getCommonSongListBySongIdListAllCount"  parameterClass="GetSimilarSongInfo" resultClass="java.lang.Integer">
+           SELECT  
+		    count(DISTINCT s.song_id)  
+		   	FROM song AS s 
+		    WHERE (s.status=1 OR s.status=6)
+		    AND s.song_id IN 
+		    <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+            </iterate>
+		    AND s.is_upload=1
+		    LIMIT 1;
+        </select>
+       <select id="getSimilarSongNative" parameterClass="GetSimilarSongInfo" resultMap="song">
+          SELECT  
+            s.song_title, 
+		    s.song_id ,
+		    s.song_region ,
+		    s.album_title ,
+		    s.album_id  ,
+		    s.artist_name ,
+		    s.artist_id ,
+		    s.song_duration ,
+			s.google_song_id ,
+			s.has_mv ,
+			IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s  
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE (s.status=1 or s.status=6)
+			AND s.is_upload=1
+			<isNotNull prepend="and" property="songid">
+				s.song_id=#songid#
+			</isNotNull>
+			<isNotNull prepend="and" property="song">
+				s.song_title=#song#
+			</isNotNull>
+			<isNotNull prepend="and" property="artist">
+				s.artist_name=#artist#
+			</isNotNull>
+ 			limit 1;
+       </select>
+
+       <select id="getCommonSongListByArtistId" parameterClass="GetSimilarSongInfo" resultMap="song">
+            SELECT  s.song_title 
+		    , s.song_id 
+		    , a.artist_region AS song_region
+		    , s.album_title 
+		    , s.album_id  
+		    , a.artist_name as artist_name
+		    , a.artist_id as artist_id
+		    , s.song_duration 
+			, s.google_song_id 
+			, s.has_mv 
+			,IFNULL(su.play_times,0) AS play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON s.song_id=su.song_id
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+			WHERE  
+			a.artist_id=#artistid#
+			AND (s.status=1 or s.status=6)
+			AND s.is_upload=1
+			LIMIT #start#,#pagecount#;
+       </select>
+       
+      <select id="getBillboardGrouIdByGroupCode" parameterClass="ListBillboardInfo" resultClass="java.lang.Integer">
+		   SELECT billboard_group_id FROM billboard_group WHERE billboard_group_code=#billboardgroupcode# limit 1;
+	 </select>
+
+	 <select id="getBillboardList" parameterClass="ListBillboardInfo"
+		resultClass="com.kascend.music2.api3.entity.Billboard">
+	     SELECT 
+	     b.billboard_type AS billboardType,
+	     b.billboard_source AS billboardSource,
+	     b.billboard_title AS billboardTitle,
+	     b.billboard_id AS billboardId, 
+	     b.billboard_size AS billboardSize,
+	     sba.sub_billboard_thumb AS billboardThumb,
+	     UNIX_TIMESTAMP(IFNULL(b.update_time,0))*1000 AS updateTime,
+	     b.billboard_description AS billboardDescription
+	     FROM billboard AS b  
+	     JOIN
+	     <isEqual property="billboardtype" prepend=" " compareValue="0">
+          sub_billboard_song as sba
+        </isEqual>
+        <isEqual property="billboardtype" prepend=" " compareValue="1">
+          sub_billboard_album as sba
+        </isEqual>
+        <isEqual property="billboardtype" prepend=" " compareValue="2">
+          sub_billboard_artist as sba
+        </isEqual>
+        <isEqual property="billboardtype" prepend=" " compareValue="4">
+          sub_billboard_mv as sba
+        </isEqual>
+         ON b.sub_billboard_id=sba.sub_billboard_id
+	     JOIN  billboard_mp_app AS bma ON bma.billboard_id=b.billboard_id
+	     JOIN  billboard_mp_group AS bmg ON bmg.billboard_id=b.billboard_id
+	     JOIN billboard_group AS bgp ON bgp.billboard_group_id=bmg.billboard_group_id
+	     WHERE  b.status=1 AND bma.appid=#appid# 
+	     AND b.billboard_type=#billboardtype#
+	     <isNotEqual prepend="AND" property="billboardgroupid" compareValue="0">
+	     	bgp.billboard_group_id=#billboardgroupid#
+	     </isNotEqual>
+         ORDER BY bmg.sort_index ASC;
+	  </select>
+	  
+	  	<select id="getBillboardGroupList" parameterClass="ListBillboardInfo" resultClass="com.kascend.music2.api3.entity.Billboard">
+		 SELECT 
+		 bgp.billboard_group_name AS billboardTitle,
+		 bgp.billboard_group_id AS  billboardId,
+		 UNIX_TIMESTAMP(IFNULL(bgp.update_time,0))*1000 AS updateTime,
+		 bgp.billboard_group_thumb  AS billboardThumb,
+		 bgp.description AS billboardDescription
+		 FROM billboard_group AS bgp
+		 where  bgp.parent_group_id=#billboardgroupid# 
+		 ORDER BY bgp.sort_index ASC;
+		</select>
+	  	
+    <select id="getBillboardGroupSubBillboardCounts" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+		SELECT count(*) FROM billboard  AS b JOIN billboard_mp_group AS bmg
+		ON b.billboard_id= bmg.billboard_id JOIN billboard_group AS  bg
+ 		ON bmg.billboard_group_id= bg.billboard_group_id
+ 		WHERE (b.status=1 OR b.status=6 ) AND bg.billboard_group_id=#billboardGroupId#;
+	</select>
+	
+	<update id="clearRandomSong">
+			truncate song_random_id;
+	</update>
+	<insert id="insertRandomSong">
+			insert into song_random_id (SELECT DISTINCT s.song_id,s.has_mv
+			FROM song AS s  JOIN song_mp_artist AS sma ON
+			s.song_id=sma.song_id  JOIN artist AS a ON
+			sma.artist_id=a.artist_id
+			WHERE 
+			s.song_id >0
+			AND a.artist_id >0
+			AND sma.type=0
+			AND (s.status=1 OR s.status=6)
+			AND
+			s.pic_status=1
+      		AND a.artist_region=21
+      		AND s.is_upload=1
+      		AND s.default_lyric >0);
+	</insert>
+	<update id="clearRecommendUser">
+			truncate user_random_id;
+	</update>
+	
+	<update id="insertRecommendUser">
+		   insert into user_random_id(select distinct uid,activity from user where (status=0 or status=2) and ( user_type=2 or head_icon is not null ) and song_count >10 order by activity desc limit 500);
+	</update>
+
+      
+	<select id="getMvUriDownloadInfoByMvId" parameterClass="java.lang.Long" resultClass="com.kascend.music2.api3.entity.SongMv">
+		SELECT mv.song_id as songId,
+		mv.mv_id AS mvId,
+		smu.mv_uri AS mvUri,
+		smu.data_from as dataFrom
+		FROM song_mv AS mv 
+		LEFT JOIN song_mv_uri AS smu ON smu.mv_id=mv.mv_id
+		WHERE mv.mv_id=#mvid#
+		ORDER BY smu.data_from ASC
+		limit 1;      
+      </select>
+      
+    <select id="getMvIdAndTypeListBySongId" parameterClass="java.lang.Long" resultClass="com.kascend.music2.api3.entity.SongMv">
+		SELECT mv.mv_type as mvType,mv.mv_id AS mvId
+		FROM song_mv as mv
+		WHERE mv.song_id=#songid#
+      </select>
+
+     <select id="topMvList" parameterClass="TopInfo" resultMap="listSongMv">
+      SELECT  sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN billboard_mp_mv AS bmm ON bmm.mv_id=sm.mv_id
+      	JOIN song_mv_pic AS smp ON smp.mv_pic_id=sm.pic_id
+      	JOIN song_mv_mp_artist AS smma ON smma.mv_id=sm.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	WHERE bmm.sub_billboard_id=#subbillboardid#
+      	GROUP BY sm.mv_id
+      	ORDER BY bmm.position ASC
+      	LIMIT #start#,#pagecount#;
+      </select>
+      <select id="getArtistChineseRegion" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+      	SELECT a.artist_region FROM artist AS a WHERE a.artist_id=#artistId# LIMIT 1
+      </select>
+    <select id="getTopMvCounts" parameterClass="java.lang.Long" 
+       resultClass="java.lang.Integer">
+      SELECT COUNT(bms.mv_id) 
+      FROM billboard_mp_mv AS bms JOIN  song_mv AS sm ON sm.mv_id=bms.mv_id
+      WHERE bms.sub_billboard_id=#billboardId#
+      limit 1
+    </select>  
+    
+    <select id="checkGetSongInfoBySongIdByFilter" parameterClass="GetSongInfo" resultClass="java.lang.Long">
+            select distinct song_id from song 
+            where song_id IN 
+            <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+         	</iterate>
+            <isEqual prepend="and" property="lyricfilter" compareValue="1">
+               default_lyric >0
+            </isEqual>
+            <isEqual prepend="and" property="albumartfilter" compareValue="1">
+                pic_status=1
+            </isEqual>
+            <isEqual prepend="and" property="artistartfilter" compareValue="1">
+                has_artist_pic=1
+            </isEqual>
+      </select>
+
+    <select id="getSongMvInfoByArtistId" parameterClass="ListMvInfo" resultMap="listSongMv">
+      	SELECT DISTINCT sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE sm.song_id > 0 
+      	<isNotEqual prepend="AND" compareValue="0" property="artistid">
+		 	a.artist_id=#artistid#
+		</isNotEqual>
+      	LIMIT #start#,#pagecount#;
+      </select>
+      
+      <select id="getSongMvInfoAllCount" parameterClass="ListMvInfo" resultClass="java.lang.Integer">
+      	SELECT count(DISTINCT sm.mv_id)
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE sm.song_id > 0 
+      	<isNotEqual prepend="AND" compareValue="0" property="artistid">
+		 	a.artist_id=#artistid#
+		</isNotEqual>
+      	LIMIT 1;
+      </select>
+     
+     <select id="getArtistInfoByArtistIdOrName" parameterClass="java.util.HashMap" resultMap="artistAndUid">
+     	 SELECT *
+		 FROM artist  AS a 
+		 WHERE 1=1
+		 <isNotEqual prepend="AND" compareValue="0" property="artistId">
+		 	a.artist_id=#artistId#
+		 </isNotEqual>
+		 <isNotNull  prepend="AND" property="artistName">
+		 	a.artist_name=#artistName#
+		 </isNotNull>
+		 LIMIT 1;
+     </select>
+     
+    <select id="getArtistInfoByArtistIdOrNameWithStatus" parameterClass="java.util.HashMap" resultMap="artistAndUid">
+     	 SELECT *
+		 FROM artist  AS a 
+		 WHERE (a.status=0 or a.status=1 or a.status=6)
+		 <isNotEqual prepend="AND" compareValue="0" property="artistId">
+		 	a.artist_id=#artistId#
+		 </isNotEqual>
+		 <isNotNull  prepend="AND" property="artistName">
+		 	a.artist_name=#artistName#
+		 </isNotNull>
+		 LIMIT 1;
+     </select>
+      
+     <select id="getSearchSongIdList" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+    	 SELECT DISTINCT s.song_id
+    	 FROM song AS s
+    	 JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+    	 JOIN artist AS a ON sma.artist_id=a.artist_id
+    	 WHERE 
+    	 (s.status=1 or s.status=6) 
+    	 AND s.is_upload=1
+    	 <isEqual prepend="AND" property="mvflag" compareValue="1">
+    	 	s.has_mv=1
+    	 </isEqual>
+		 <isNotNull prepend="and" property="artist">
+           	(a.artist_name=#artist# or a.artist_english_name=#artist#)
+         </isNotNull>
+         <isNotNull prepend="and" property="album">
+           	s.album_title=#album# 
+         </isNotNull>
+         <isNotNull prepend="and" property="song">
+           	s.song_title=#song#
+         </isNotNull>
+         <isNotNull prepend="or" property="filename">
+           	s.song_title=#filename#
+         </isNotNull>
+         LIMIT #pagecount#;
+     </select>
+          <select id="getSearchSongIdListWithStatus" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+    	 SELECT DISTINCT s.song_id
+    	 FROM song AS s
+    	 JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+    	 JOIN artist AS a ON sma.artist_id=a.artist_id
+    	 WHERE 
+    	 (s.status=0 or s.status=1 or s.status=6) 
+    	 AND s.is_upload=1
+    	 <isEqual prepend="AND" property="mvflag" compareValue="1">
+    	 	s.has_mv=1
+    	 </isEqual>
+		 <isNotNull prepend="and" property="artist">
+           	(a.artist_name=#artist# or a.artist_english_name=#artist#)
+         </isNotNull>
+         <isNotNull prepend="and" property="album">
+           	s.album_title=#album# 
+         </isNotNull>
+         <isNotNull prepend="and" property="song">
+           	s.song_title=#song#
+         </isNotNull>
+         <isNotNull prepend="or" property="filename">
+           	s.song_title=#filename#
+         </isNotNull>
+         LIMIT #pagecount#;
+     </select>
+      <select id="getSearchSongIdListOfGetSongInfo" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+    	 SELECT DISTINCT s.song_id
+    	 FROM song AS s
+    	 JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+    	 JOIN artist AS a ON sma.artist_id=a.artist_id
+    	 WHERE 1=1
+    	 <isEqual prepend="AND" property="mvflag" compareValue="1">
+    	 	s.has_mv=1
+    	 </isEqual>
+		 <isNotNull prepend="and" property="artist">
+           	(a.artist_name=#artist# or a.artist_english_name=#artist#)
+         </isNotNull>
+         <isNotNull prepend="and" property="album">
+           	s.album_title=#album# 
+         </isNotNull>
+         <isNotNull prepend="and" property="song">
+           	s.song_title=#song#
+         </isNotNull>
+         <isNotNull prepend="or" property="filename">
+           	s.song_title=#filename#
+         </isNotNull>
+         LIMIT #pagecount#;
+     </select>
+
+     <select id="getSongMvInfoBySongIdList" parameterClass="LookupMvInfo" resultMap="listSongMv">
+        SELECT  sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE sm.song_id > 0
+      	AND sm.song_id IN
+      	<iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+        </iterate>
+      	GROUP BY sm.mv_id
+      </select>
+      
+      <select id="getSongMvInfoByArtistIdExceptSongIdList" parameterClass="LookupMvInfo" resultMap="listSongMv">
+      	SELECT DISTINCT sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE sm.song_id > 0 
+      	AND a.artist_id=#artistid#
+      	<isNotEmpty prepend="AND" property="songIdList">
+      			sm.song_id NOT IN 
+			<iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+        	</iterate>
+      	</isNotEmpty>
+      </select>
+      
+     <select id="getSongInfoBySongId"  parameterClass="java.util.HashMap" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times 
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE  s.song_id=#songid#
+			AND (s.status=1 or s.status=6)
+			AND s.is_upload=1
+			<isNotEqual prepend="AND" property="mvflag" compareValue="0">
+				s.has_mv=1
+			</isNotEqual>
+      		limit 1;
+	</select>
+	<select id="getSongInfoBySongIdNoCondition"  parameterClass="java.lang.Long" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times ,
+			 s.song_thumb_uri 
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE  s.song_id=#songid#
+      		limit 1;
+	</select>
+		<select id="getSongInfoBySongIdWithStatus"  parameterClass="java.lang.Long" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times ,
+			 s.song_thumb_uri 
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE  s.song_id=#songid#
+			AND (s.status=0 or s.status=1 or s.status=6)
+      		limit 1;
+	</select>
+	 <select id="getMtvInfoByArtistAndAlbumExceptSongIdList" parameterClass="LookupMvInfo" resultMap="listSongMv">
+       SELECT DISTINCT sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN album_mp_song AS asm ON asm.song_id=sm.song_id
+      	JOIN song_mv_pic AS smp ON smp.mv_pic_id=sm.pic_id
+      	JOIN album AS al ON al.album_id=asm.album_id
+      	JOIN song_mv_mp_artist AS smma ON smma.mv_id=sm.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	WHERE  sm.song_id >0 
+      	AND a.artist_name=#artist#
+      	AND al.album_title=#album#
+      	<isNotEmpty property="songIdList">
+      		 	AND sm.song_id NOT IN 
+      	<iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+        </iterate>
+      	</isNotEmpty>
+      	GROUP BY sm.song_id;
+       </select>
+       
+      <select id="getSongMvInfoByMvId" parameterClass="java.lang.Integer" resultMap="listSongMv">
+        SELECT DISTINCT sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE sm.mv_id=#mvId# limit 1;
+      </select>
+      
+      
+      <select id="getBillboardIdBySubBillboardId" parameterClass="TopInfo" resultClass="java.lang.Long">
+      	SELECT b.billboard_id
+      	FROM billboard AS b
+      	JOIN 
+      	<isEqual property="type" prepend=" " compareValue="0">
+          sub_billboard_song AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="1">
+          sub_billboard_album AS sba
+        </isEqual>
+         <isEqual property="type" prepend=" " compareValue="2">
+          sub_billboard_artist AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="4">
+          sub_billboard_mv AS sba
+        </isEqual>
+        ON b.billboard_id=sba.billboard_id
+        WHERE sba.sub_billboard_id=#subbillboardid#
+        LIMIT 1;
+      </select>
+            <select id="getSubBillboardIdByBillboardId" parameterClass="TopInfo" resultClass="java.lang.Long">
+      	SELECT b.sub_billboard_id
+      	FROM billboard AS b
+      	JOIN 
+      	<isEqual property="type" prepend=" " compareValue="0">
+          sub_billboard_song AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="1">
+          sub_billboard_album AS sba
+        </isEqual>
+         <isEqual property="type" prepend=" " compareValue="2">
+          sub_billboard_artist AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="4">
+          sub_billboard_mv AS sba
+        </isEqual>
+        ON b.billboard_id=sba.billboard_id
+        WHERE b.billboard_id=#billboardid#
+        LIMIT 1;
+      </select>
+      
+      <select id="getSubBillboardListByBillboardId" parameterClass="TopInfo" resultMap="listSubBillboard">
+      	 SELECT sba.sub_billboard_id,
+      	 sba.sub_billboard_title
+      	 FROM 
+      	<isEqual property="type" prepend=" " compareValue="0">
+          sub_billboard_song AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="1">
+          sub_billboard_album AS sba
+        </isEqual>
+         <isEqual property="type" prepend=" " compareValue="2">
+          sub_billboard_artist AS sba
+        </isEqual>
+        <isEqual property="type" prepend=" " compareValue="4">
+          sub_billboard_mv AS sba
+        </isEqual>	
+        JOIN billboard AS b ON b.billboard_id=sba.billboard_id
+        JOIN billboard_mp_app AS bma ON bma.billboard_id=b.billboard_id
+        WHERE b.billboard_id=#billboardid#
+        AND  sba.status=1
+        AND bma.appid=#appid#
+        ORDER BY sba.sub_billboard_id DESC 
+        LIMIT #subbillboardlistsize#;
+      </select>
+      
+      <select id="getListArtistInfo" parameterClass="DiscoveryInfo" resultMap="artist">
+      	        SELECT DISTINCT a.artist_name ,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs,
+		        a.artist_thumbnail
+		<isEqual prepend="," compareValue="1" property="bioflag">
+		    a.artist_description
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag">
+		    NULL AS artist_description
+		</isNotEqual>
+		FROM 
+		artist AS a JOIN artist_mp_genre AS amg ON a.artist_id=amg.artist_id
+		JOIN artist_ext AS ae ON a.artist_id=ae.artist_id
+    	WHERE (a.status=1 or a.status=6)
+    	AND a.published_songs >0
+    	AND a.has_uploaded=1
+    	 <isNotEmpty prepend="  " property="styleList">
+      		 AND amg.genre_id IN
+      		 <iterate open="(" close=")"  conjunction="," property="styleList" >
+            	#styleList[]#
+       		 </iterate>
+      	</isNotEmpty>
+      		 <isNotEmpty prepend="  " property="regionList">
+      		 AND a.artist_region IN
+      		 <iterate open="(" close=")"  conjunction="," property="regionList" >
+            	#regionList[]#
+       		 </iterate>
+      	</isNotEmpty>
+      	<isEqual property="sort" compareValue="1">
+      		ORDER BY ae.artist_hot DESC 
+      	</isEqual>
+      	<isEqual property="sort" compareValue="2">
+      		ORDER BY a.update_time DESC 
+      	</isEqual>
+		LIMIT #start#,#pagecount#
+      </select>
+      
+      <select id="getListArtistInfoAllCount" parameterClass="DiscoveryInfo" resultClass="java.lang.Integer">
+      	SELECT count(DISTINCT a.artist_id )
+		FROM 
+		artist AS a JOIN artist_mp_genre AS amg ON a.artist_id=amg.artist_id
+		JOIN artist_ext AS ae ON a.artist_id=ae.artist_id
+    	WHERE (a.status=1 or a.status=6)
+    	AND a.published_songs >0
+    	AND a.has_uploaded=1
+    	 <isNotEmpty prepend="  " property="styleList">
+      		 AND amg.genre_id IN
+      		 <iterate open="(" close=")"  conjunction="," property="styleList" >
+            	#styleList[]#
+       		 </iterate>
+      	</isNotEmpty>
+      		 <isNotEmpty prepend="  " property="regionList">
+      		 AND a.artist_region IN
+      		 <iterate open="(" close=")"  conjunction="," property="regionList" >
+            	#regionList[]#
+       		 </iterate>
+      	</isNotEmpty>
+		LIMIT 1
+      </select>
+      
+        <select id="getSearchMaxSongIdList" parameterClass="java.util.HashMap" resultClass="java.lang.Long">
+    	 SELECT DISTINCT s.song_id
+    	 FROM song AS s
+    	 JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+    	 JOIN artist AS a ON sma.artist_id=a.artist_id
+    	 WHERE 
+    	 s.is_upload=1
+    	 AND
+    	 (s.status=1 or s.status=6 or s.status=0) 
+		 <isNotNull prepend="and" property="artist">
+           	(a.artist_name=#artist# or a.artist_english_name=#artist#)
+         </isNotNull>
+         <isNotNull prepend="and" property="album">
+           	s.album_title=#album# 
+         </isNotNull>
+         <isNotNull prepend="and" property="song">
+           	s.song_title=#song#
+         </isNotNull>
+         <isNotNull prepend="or" property="filename">
+           	s.song_title=#filename#
+         </isNotNull>
+     </select>
+     
+             <select id="getMaxSongListBySongIdList"  parameterClass="GetSimilarSongInfo" resultMap="song">
+           SELECT  
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) AS play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON s.song_id=su.song_id
+		    WHERE (s.status=1 OR s.status=6 OR s.status=0)
+		    AND s.song_id IN 
+		    <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+            </iterate>
+            <isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+        </select>
+        
+      <select id="getSearchKeyWordList" parameterClass="GetSearchKeywordInfo" resultClass="java.lang.String">
+            SELECT sk.keyword FROM search_keyword_log AS sk 
+            where  sk.status=0
+            <isNotNull prepend="and" property="type">
+                 sk.search_type=#type#
+            </isNotNull>
+            ORDER BY search_count  desc limit #pagecount#
+      </select>
+      
+      <select id="getArtistartListByArtistId" parameterClass="java.lang.Long" resultClass="java.lang.String">
+            SELECT  ap.pic_uri 
+            FROM artist_pic AS ap  
+            WHERE ap.artist_id =#artistid#;
+      </select>
+      
+      <select id="getArtistListByIds" parameterClass="java.util.List" resultMap="artistAndUid">
+     	 SELECT a.artist_name ,
+     	        a.artist_english_name,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs ,
+		        a.artist_description,
+		        a.artist_thumbnail,
+		        a.uid
+		 FROM artist  AS a 
+		 WHERE
+      		 a.artist_id IN
+      		 <iterate open="(" close=")"  conjunction="," >
+            	#artistIdList[]#
+       		 </iterate>
+     </select>
+     
+         <select id="getSongInfoListByArtistId"  parameterClass="GetSongsOfArtistInfo" resultMap="song">
+           SELECT  
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     a.artist_name as artist_name ,
+		     a.artist_id as artist_id,
+		     s.song_duration,
+		     s.google_song_id,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+		   	WHERE (s.status=1 OR s.status=6)
+		    AND a.artist_id=#artistid#
+		    <isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+		    GROUP BY s.song_id
+		    LIMIT #start#,#pagecount#
+      </select>
+      
+       <select id="getSongInfoListByArtistIdAllCount"  parameterClass="GetSongsOfArtistInfo" resultClass="java.lang.Integer">
+           SELECT  count(DISTINCT s.song_id) 
+		   	FROM song AS s 
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+		   	WHERE (s.status=1 OR s.status=6)
+		    AND a.artist_id=#artistid#
+		    <isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+		    LIMIT 1;
+      </select>
+      
+        <select id="getHotSongInfoListByArtistId"  parameterClass="GetSongsOfArtistInfo" resultMap="song">
+           SELECT  
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     a.artist_name as artist_name ,
+		     a.artist_id as artist_id,
+		     s.song_duration,
+		     s.google_song_id,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+		   	LEFT JOIN song_ext AS se ON se.song_id=s.song_id
+		   	WHERE (s.status=1 OR s.status=6)
+		    AND a.artist_id=#artistid#
+		    <isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+		    GROUP BY s.song_id
+		    ORDER BY se.song_hot DESC
+		    LIMIT #start#,#pagecount#
+      </select>
+      
+      <select id="getHotSongInfoListByArtistIdAllCount"  parameterClass="GetSongsOfArtistInfo" resultClass="java.lang.Integer">
+           SELECT  count(DISTINCT s.song_id) 
+		   	FROM song AS s 
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+		   	LEFT JOIN song_ext AS se ON se.song_id=s.song_id
+		   	WHERE (s.status=1 OR s.status=6)
+		    AND a.artist_id=#artistid#
+		    <isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+		    LIMIT 1;
+      </select>
+      
+      <select id="getAlbumInfoById" parameterClass="java.lang.Long" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_bio,
+	        al.album_publish_time,
+	        al.album_thumb_uri,
+	        al.published_songs
+			FROM album AS al
+			WHERE  al.album_id=#albumId#
+			LIMIT 1;
+        </select>
+        
+        <select id="getAlbumInfoByIdRealSongCount" parameterClass="java.lang.Long" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_bio,
+	        al.album_publish_time,
+	        al.album_thumb_uri,
+	        al.album_count as published_songs
+			FROM album AS al
+			WHERE  al.album_id=#albumId#
+			LIMIT 1;
+        </select>
+        
+        <select id="getAlbumInfoByIdNoCondition" parameterClass="java.lang.Long" resultMap="specialAlbumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_bio,
+	        al.album_publish_time,
+	        al.album_thumb_uri,
+	        al.album_count AS published_songs,
+	        IFNULL(au.user_times,0) AS user_times
+			FROM album AS al
+			LEFT JOIN album_udata AS au ON al.album_id=au.album_id
+			WHERE  al.album_id=#albumId#
+			LIMIT 1;
+        </select>
+        
+         <select id="getAlbumInfoByArtistAndAlbumTitle" parameterClass="GetAlbumInfo" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            a.artist_name as artist_name ,
+            a.artist_id as artist_id,
+	        al.album_bio,
+	        al.album_publish_time,
+	        al.published_songs
+	        <isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 al.album_thumb_uri
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  album_thumb_uri
+		    </isNotEqual>
+        	FROM album AS al  
+        	JOIN  artist_mp_album AS ama ON al.album_id=ama.album_id 
+        	JOIN artist AS a ON ama.artist_id=a.artist_id
+			WHERE (al.status=1 OR al.status=6)
+			AND al.has_uploaded=1
+			AND
+			al.album_title=#album#
+			AND a.artist_name=#artist#
+			LIMIT 1;
+		</select>
+        <select id="getAlbumInfoByArtistAndAlbumTitleWithStatus" parameterClass="GetAlbumInfo" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            a.artist_name as artist_name ,
+            a.artist_id as artist_id,
+	        al.album_bio,
+	        al.album_publish_time,
+	        al.published_songs
+	        <isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 al.album_thumb_uri
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  album_thumb_uri
+		    </isNotEqual>
+        	FROM album AS al  
+        	JOIN  artist_mp_album AS ama ON al.album_id=ama.album_id 
+        	JOIN artist AS a ON ama.artist_id=a.artist_id
+			WHERE (al.status=1 OR al.status=6 OR al.status=0)
+			AND al.has_uploaded=1
+			AND
+			al.album_title=#album#
+			AND a.artist_name=#artist#
+			LIMIT 1;
+		</select>
+			
+	<select id="getSpecialSongInfoByAlbumId"  parameterClass="GetSongsOfAlbumInfo" resultMap="sortSong">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+		     s.sort_index,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE s.album_id=#albumid#
+			AND (s.status=0 or s.status=1 or s.status=6)
+			ORDER BY su.play_times DESC,s.sort_index ASC
+      		limit #start#,#pagecount#;
+	  </select>	
+	<select id="getSongInfoByAlbumId"  parameterClass="GetSongsOfAlbumInfo" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE s.album_id=#albumid#
+			AND (s.status=1 OR s.status=6)
+			<isNotEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	s.is_upload=1
+            </isNotEqual>
+            <isEqual property="songFileFlag" compareValue="0" prepend="AND">
+            	(s.is_upload=1 or s.uri_status=1)
+            </isEqual>
+			<isEqual property="sort" compareValue="0">
+				ORDER BY s.sort_index ASC
+			</isEqual>
+			<isEqual property="sort" compareValue="1">
+				ORDER BY su.play_times DESC
+			</isEqual>
+      		limit #start#,#pagecount#;
+	  </select>
+	  
+	<select id="getSongInfoByAlbumIdList"  parameterClass="java.util.List" resultMap="sortSong">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.sort_index,
+			 s.has_mv,
+			 IFNULL(su.play_times,0) as play_times,
+			 null as song_thumb_uri 
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			WHERE s.album_id IN
+			<iterate close=")" open="(" conjunction="," >
+				#albumIdList[]#
+			</iterate>
+	  </select>	  
+	  <select id="getSongInfoByArtistAndSong"  parameterClass="java.util.HashMap" resultMap="song">
+	    SELECT  s.song_title, 
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     a.artist_name as artist_name,
+		     a.artist_id as artist_id,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv ,
+			 IFNULL(su.play_times,0) as play_times
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+			FROM song  AS s
+			LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+			JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+			JOIN artist AS a ON a.artist_id=sma.artist_id
+			WHERE s.song_title=#song#
+			AND	a.artist_name=#artist#
+			AND (s.status=1 OR s.status=6)
+			AND s.is_upload=1
+      		limit 1;
+	  </select>
+	  
+	  <select id="getLyricBySongId" parameterClass="java.lang.Long" resultClass="java.lang.String">
+	  	SELECT l.lyric_text FROM lyric AS l   WHERE l.song_id=#songId# LIMIT 1;
+	  </select>
+	  
+	  
+	   <select id="getAlbumListByArtistId" parameterClass="GetAlbumsOfArtistInfo" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        al.published_songs
+	        <isEqual prepend="," compareValue="1" property="albumartflag">
+		    al.album_thumb_uri
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="albumartflag">
+		    null AS album_thumb_uri
+		   </isNotEqual>
+		   <isEqual prepend="," compareValue="1" property="bioflag">
+		    al.album_bio
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="bioflag">
+		    null AS album_bio
+		   </isNotEqual>
+			FROM album AS al
+			JOIN artist_mp_album AS ama ON ama.album_id=al.album_id
+			JOIN artist AS a ON a.artist_id=ama.artist_id
+			WHERE (al.status=1 OR al.status=6 OR al.status=0)
+			AND a.artist_id=#artistid#
+			GROUP BY al.album_id
+			LIMIT #start#,#pagecount#;
+        </select>
+        <select id="getAlbumListAndAllSongsByArtistId" parameterClass="GetAlbumsOfArtistInfo" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        al.album_count as published_songs
+	        <isEqual prepend="," compareValue="1" property="albumartflag">
+		    al.album_thumb_uri
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="albumartflag">
+		    null AS album_thumb_uri
+		   </isNotEqual>
+		   <isEqual prepend="," compareValue="1" property="bioflag">
+		    al.album_bio
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="bioflag">
+		    null AS album_bio
+		   </isNotEqual>
+			FROM album AS al
+			JOIN artist_mp_album AS ama ON ama.album_id=al.album_id
+			JOIN artist AS a ON a.artist_id=ama.artist_id
+			WHERE (al.status=1 OR al.status=6 OR al.status=0)
+			AND a.artist_id=#artistid#
+			LIMIT #start#,#pagecount#;
+        </select>
+        
+        <select id="getAlbumListByArtistIdAllCount" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+            SELECT  count(DISTINCT al.album_id)
+			FROM album AS al
+			JOIN artist_mp_album AS ama ON ama.album_id=al.album_id
+			JOIN artist AS a ON a.artist_id=ama.artist_id
+			WHERE (al.status=1 OR al.status=6 OR al.status=0)
+			AND a.artist_id=#artistid#
+			LIMIT 1;
+        </select>
+        
+       <select id="checkSongIdIfExist" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+       		select s.song_id as songid from song as s where s.song_id=#songId# limit 1;
+       </select>
+       
+       <select id="checkSongIdIfInSongUdata" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+       		select song_id  from song_udata  where song_id=#songId# limit 1;
+       </select>
+       
+       <update id="updateSongUdataPlayTimes" parameterClass="java.lang.Long">
+	     	update song_udata set  play_times=play_times+1 where song_id=#songId#;
+	   </update>
+	   
+	   <update id="updateSongUdataDownloadTimes" parameterClass="java.lang.Long">
+	     	update song_udata set  down_times=down_times+1 where song_id=#songId#;
+	   </update>
+	   
+	    <insert id="saveSongUdata"  parameterClass="java.lang.Long">
+		   	insert into song_udata(song_id) VALUES (#songId#);
+	   </insert>
+	   <select id="getAlbumListBySongId" parameterClass="GetAlbumsOfSongInfo" resultMap="albumInfo">
+            SELECT DISTINCT 
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,	
+			al.published_songs,
+			<isEqual prepend=" " property="bioflag" compareValue="1">
+			    al.album_bio,
+			</isEqual>
+			<isNotEqual prepend=" " property="bioflag" compareValue="1">
+			    null AS album_bio,
+			</isNotEqual>
+			<isEqual prepend=" " property="albumartflag" compareValue="1">
+			    al.album_thumb_uri,
+			</isEqual>
+			<isNotEqual prepend=" " property="albumartflag" compareValue="1">
+			    null AS album_thumb_uri,
+			</isNotEqual>
+			al.album_publish_time
+			FROM album AS al 
+			JOIN album_mp_song AS ams ON ams.album_id=al.album_id 
+			JOIN song AS s 
+			ON s.song_id=ams.song_id
+			WHERE (al.status=1 OR al.status=6)
+		    AND s.song_id=#songid#
+		    AND al.has_uploaded=1
+		    AND al.published_songs > 0
+			LIMIT #start#,#pagecount#;
+        </select>
+        
+           <select id="getAlbumListBySongIdAllCount" parameterClass="GetAlbumsOfSongInfo" resultClass="java.lang.Integer">
+            SELECT count(DISTINCT al.album_id)
+			FROM album AS al 
+			JOIN album_mp_song AS ams ON ams.album_id=al.album_id 
+			JOIN song AS s 
+			ON s.song_id=ams.song_id
+			WHERE (al.status=1 OR al.status=6)
+		    AND s.song_id=#songid#
+		    AND al.has_uploaded=1
+		    AND al.published_songs > 0
+			LIMIT 1;
+        </select>
+        
+      <select id="getSongListByIds"  parameterClass="java.util.List" resultMap="song">
+           SELECT  DISTINCT
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv, 
+			 s.song_thumb_uri,
+			 IFNULL(su.play_times,0) as play_times
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+		    WHERE  s.song_id IN 
+		    <iterate open="(" close=")"  conjunction="," >
+            	#songIdList[]#
+            </iterate>
+      </select>
+      
+     <select id="getSongListByIdsWithStatus"  parameterClass="java.util.List" resultMap="song">
+           SELECT  DISTINCT
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title ,
+		     s.album_id  ,
+		     s.artist_name ,
+		     s.artist_id ,
+		     s.song_duration ,
+			 s.google_song_id ,
+			 s.has_mv, 
+			 s.song_thumb_uri,
+			 IFNULL(su.play_times,0) as play_times
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+		    WHERE  s.song_id IN 
+		    <iterate open="(" close=")"  conjunction="," >
+            	#songIdList[]#
+            </iterate>
+            and (s.status=0 or s.status=1 or s.status=6)
+      </select>
+        
+      <select id="getSongMvListByIds" parameterClass="java.util.List" resultMap="listSongMv">
+        SELECT  sm.mv_id,
+      	sm.mv_title,
+      	a.artist_id AS artist_id,
+      	a.artist_name AS artist_name,
+      	sm.song_id,
+      	sm.duration,
+      	smp.pic_uri AS pic_uri
+      	FROM song_mv AS sm
+      	JOIN song_mv_mp_artist AS smma ON sm.mv_id=smma.mv_id
+      	JOIN artist AS a ON a.artist_id=smma.artist_id
+      	LEFT JOIN song_mv_pic AS smp ON sm.pic_id=smp.mv_pic_id
+      	WHERE  sm.mv_id IN
+      	<iterate open="(" close=")"  conjunction="," >
+            	#songMvIds[]#
+        </iterate>
+      </select>
+        
+    <select id="getCommonAlbumList" parameterClass="CommonGetAlbumInfo" resultMap="albumInfo">
+	    SELECT
+	        al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        <isEqual property="songcountflag" compareValue="0" >
+	        al.published_songs,
+	        </isEqual>
+	        <isNotEqual  property="songcountflag" compareValue="0">
+	        al.album_count AS published_songs,
+	        </isNotEqual>
+		    al.album_bio,
+		    al.album_thumb_uri 
+		FROM album AS al  
+	    WHERE  al.album_id IN 
+        <iterate open="(" close=")"  conjunction="," property="albumIdList">
+            #albumIdList[]#
+        </iterate>
+        <isEqual property="statusflag" compareValue="0">
+        	
+        </isEqual>
+        <isNotEqual property="statusflag" compareValue="0" prepend="and">
+        	(al.status=0 or al.status=1 or al.status=6)
+        </isNotEqual>
+    </select>
+    
+      <select id="getSongFileIdList" parameterClass="GetDownloadUriInfo" resultMap="songFile">
+            SELECT sf.song_file_id,
+            sf.rate,
+            sf.song_id
+            FROM song_file AS sf 
+            WHERE sf.song_id=#songid# 
+            and sf.rate in
+             <iterate open="(" close=")"  conjunction="," property="rateList">
+            	#rateList[]#
+        	</iterate> 
+            and sf.status=5;
+      </select>
+      
+              
+        
+        <select id="getSearchAlbumInfoByKeyName" parameterClass="SearchInfo" resultMap="albumInfo">
+            SELECT DISTINCT 
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,	
+			al.published_songs,
+			<isEqual prepend=" " property="bioflag" compareValue="1">
+			    al.album_bio,
+			</isEqual>
+			<isNotEqual prepend=" " property="bioflag" compareValue="1">
+			    null AS album_bio,
+			</isNotEqual>
+			<isEqual prepend=" " property="albumartflag" compareValue="1">
+			    al.album_thumb_uri,
+			</isEqual>
+			<isNotEqual prepend=" " property="albumartflag" compareValue="1">
+			    null AS album_thumb_uri,
+			</isNotEqual>
+			al.album_publish_time
+			FROM album AS al 
+			WHERE (al.status=1 OR al.status=6)
+			AND al.album_title LIKE #keyname#
+		    AND al.has_uploaded=1
+		    AND al.published_songs > 0
+			LIMIT #start#,#pagecount#;
+        </select>
+        
+        <select id="getSearchAlbumInfoByKeyNameAllCount" parameterClass="SearchInfo" resultClass="java.lang.Integer">
+            SELECT count(DISTINCT al.album_id)
+			FROM album AS al 
+			WHERE (al.status=1 OR al.status=6)
+			AND al.album_title LIKE #keyname#
+		    AND al.has_uploaded=1
+		    AND al.published_songs > 0
+			LIMIT 1;
+        </select>
+        
+        <select id="getLyricListBySongIdList" parameterClass="java.util.List" resultMap="lyricInfo">
+        	SELECT l.song_id,l.lyric_text
+        	FROM lyric AS l
+        	WHERE l.song_id IN
+        	<iterate open="(" close=")"  conjunction="," >
+            	#songIdList[]#
+        	</iterate>
+        	GROUP BY l.song_id
+        </select>
+        
+        <select id="getCommonArtistListByIdList" parameterClass="CommonArtistInfo" resultMap="artistAndUid">
+     	 SELECT DISTINCT a.artist_name ,
+     	 		a.artist_english_name,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs ,
+		        a.artist_description,
+		        a.uid
+		        <isEqual prepend="," property="artistartflag" compareValue="1">
+			    a.artist_thumbnail
+			</isEqual>
+			<isNotEqual prepend="," property="artistartflag" compareValue="1">
+			    null AS artist_thumbnail
+			</isNotEqual>
+		     FROM artist  AS a 
+		      WHERE
+      		  a.artist_id IN
+      		 <iterate open="(" close=")"  conjunction="," property="artistIdList">
+            	#artistIdList[]#
+       		 </iterate>
+       		 LIMIT #start#,#pagecount#;
+     </select>
+     
+      <select id="getSongInfoBySongIdList"  parameterClass="GetSongInfo" resultMap="song">
+           SELECT  
+           	 s.song_title ,
+		     s.song_id ,
+		     s.song_region ,
+		     s.album_title,
+		     s.album_id ,
+		     a.artist_name as artist_name ,
+		     a.artist_id as artist_id,
+		     s.song_duration,
+		     s.google_song_id,
+			 s.has_mv ,
+			 IFNULL(su.play_times,0) as play_times 
+			<isEqual prepend="," property="albumartflag" compareValue="1"> 
+				 s.song_thumb_uri 
+	        </isEqual>
+		    <isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		       null as  song_thumb_uri
+		    </isNotEqual>
+		   	FROM song AS s 
+		   	LEFT JOIN song_udata AS su ON su.song_id=s.song_id
+		   	JOIN song_mp_artist AS sma ON sma.song_id=s.song_id
+		   	JOIN artist AS a ON a.artist_id=sma.artist_id
+		   	WHERE 1=1
+		    AND s.song_id IN
+		    <iterate open="(" close=")"  conjunction="," property="songIdList">
+            	#songIdList[]#
+        	</iterate> 
+		    LIMIT #start#,#pagecount#
+      </select>
+      
+     <select id="getArtistListByArtistIdList" parameterClass="RecommendArtistInfo"
+		resultMap="artist">
+        SELECT DISTINCT  a.artist_name ,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs 
+		<isEqual prepend="," compareValue="1" property="bioflag">
+		    a.artist_description
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag">
+		    NULL AS artist_description
+		</isNotEqual>
+		<isEqual prepend="," compareValue="1" property="artistartflag">
+		    a.artist_thumbnail
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="artistartflag">
+		    NULL AS artist_thumbnail
+		</isNotEqual>
+		FROM artist
+		AS a 
+		WHERE  (a.status=1 OR a.status=6)
+        And a.has_uploaded=1
+        AND a.artist_id IN 
+         <iterate open="(" close=")"  conjunction="," property="artistIdList">
+            	#artistIdList[]#
+        </iterate>
+        LIMIT #start#,#pagecount# 
+      </select>
+      
+    <select id="getRandomArtistId" parameterClass="RecommendArtistInfo"   resultClass="java.lang.Long">
+      		SELECT artist_id FROM (SELECT DISTINCT a.artist_id,FLOOR(RAND()*100) ra FROM artist AS a 
+      		WHERE  (a.status=1 OR a.status=6)
+      		<isNotEmpty property="artistIdList">
+      		   AND a.artist_id NOT IN 
+      		  <iterate conjunction="," open="(" close=")" property="artistIdList">
+      		  	#artistIdList[]#
+      		  </iterate>
+      		</isNotEmpty>
+       		 <isNotEqual property="region" prepend="and" compareValue="0">
+        	a.artist_region=#region#
+       		 </isNotEqual>
+            AND a.published_songs >0 
+            AND a.has_uploaded=1) r 
+            ORDER BY r.ra ASC
+            LIMIT 100;
+      </select>
+      
+      <select id="getRandomSubBillboardId" resultClass="java.lang.Long">
+      	select * from (SELECT DISTINCT sub_billboard_id,FLOOR(RAND()*100) ra from sub_billboard_artist sba
+		 	where sba.status=1 ) r order by r.ra limit 1;
+      </select>
+      
+      <select id="getArtistInfoByAlbumId" parameterClass="java.lang.Long" resultMap="artist">
+      	        SELECT DISTINCT  a.artist_name ,
+                a.artist_id ,
+                a.artist_region ,
+                a.artist_type ,
+                a.published_albums , 
+				a.published_songs ,
+		        a.published_mvs, 
+		   		a.artist_description,
+		    	a.artist_thumbnail
+			FROM artist AS a 
+			JOIN album AS al ON al.artist_id=a.artist_id
+			WHERE  (a.status=1 OR a.status=6)
+        	And a.has_uploaded=1
+       		LIMIT 1;
+      </select>
+      
+      <select id="getAlbumListInfoByArtistIdList" parameterClass="RecommendalbumInfo" resultMap="albumInfo">
+      	    SELECT
+	        al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        al.published_songs
+	    <isEqual prepend="," compareValue="1" property="bioflag"> 
+		    al.album_bio
+		</isEqual>
+		<isNotEqual prepend="," compareValue="1" property="bioflag"> 
+		    null AS album_bio
+		</isNotEqual>
+		<isEqual prepend="," property="albumartflag" compareValue="1"> 
+		 al.album_thumb_uri 
+		</isEqual>
+		<isNotEqual prepend="," property="albumartflag" compareValue="1"> 
+		  null as  album_thumb_uri
+		</isNotEqual>
+		FROM album AS al  
+		JOIN artist_mp_album AS ama ON ama.album_id=al.album_id
+		JOIN artist AS a ON a.artist_id=ama.artist_id
+		WHERE  (al.status=1 OR al.status=6)
+        And al.has_uploaded=1
+        AND al.published_songs >0
+        <isNotEmpty property="artistIdList">
+      		   AND a.artist_id IN 
+      		  <iterate conjunction="," open="(" close=")" property="artistIdList">
+      		  	#artistIdList[]#
+      		  </iterate>
+      	</isNotEmpty>
+      	GROUP BY a.artist_id
+		LIMIT #start#,#pagecount#
+      </select>
+      
+      <select id="getClientBehaviorFileStatus" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+      	SELECT u.status FROM user_client_behavior_file u WHERE u.file_name=#fileName# and u.uid=#uid# limit 1;
+      </select>
+      
+      <insert id="insertClientBehaviorFileStatus" parameterClass="java.util.HashMap" >
+      	INSERT INTO user_client_behavior_file(uid,file_name,create_time) VALUES(#uid#,#fileName#,unix_timestamp());
+      </insert>
+      
+      <insert id="insertClientUserData" parameterClass="java.util.HashMap" >
+      	INSERT INTO user_client_data(uid,behavior_id,count,create_time) VALUES(#uid#,#id#,#count#,unix_timestamp());
+      </insert>
+      
+      <insert id="insertClientUserBehavior" parameterClass="java.util.HashMap" >
+      	INSERT INTO user_client_behavior(uid, behavior_id, count,day,create_time) VALUES(#uid#,#id#,#count#,#day#,unix_timestamp());
+      </insert>
+      
+      <update id="updateClientBehaviorFileStatus" parameterClass="java.util.HashMap">
+      	UPDATE user_client_behavior_file SET status=1 WHERE file_name=#fileName# AND uid=#uid#;
+      </update>
+      
+      <insert id="saveUploadMetadata" parameterClass="java.util.HashMap">
+      	 insert into user_song_metadata(song_id,song_title,album_title,artist_name,filename,create_time,uid) 
+      	 values(#songId#,#songTitle#,#albumTitle#,#artistName#,#fileName#,NOW(),#uid#);
+      </insert>
+      
+      <select id="getAlbumIdBySongId" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+      		SELECT s.album_id FROM song as s 
+      		JOIN album AS al ON al.album_id=s.album_id 
+      		WHERE s.song_id=#songId# LIMIT 1;
+      </select>
+      
+      <select id="getUserOpAlbum" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+      	  SELECT COUNT(*) FROM user_op_album WHERE uid=#uid# AND album_id=#albumId# AND type=#opType#
+      </select>
+      
+      <select id="getUsersCountOfUserOpAlbum" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+      	  SELECT COUNT(DISTINCT uid) FROM user_op_album WHERE album_id=#albumId#
+      </select>
+      
+      <insert id="saveUserOpAlbum" parameterClass="java.util.HashMap">
+      	 INSERT INTO user_op_album(uid,album_id,last_time,last_song_id,type,last_comment_id) VALUES(#uid#,#albumId#,unix_timestamp(),#songId#,#opType#,#commentId#);
+      </insert>
+      
+      <update id="updateUserOpAlbum" parameterClass="java.util.HashMap">
+      	 UPDATE user_op_album SET last_time=unix_timestamp(),last_song_id=#songId#
+      	 <isEqual property="commentId" compareValue="0">
+      	 	
+      	 </isEqual>
+      	 <isNotEqual property="commentId" compareValue="0" prepend=",">
+      	 	last_comment_id=#commentId#
+      	 </isNotEqual>
+      	 WHERE uid=#uid# AND album_id=#albumId# and type=#opType#;
+      </update>
+      
+      <select id="getLastListenedAlbum" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+      	SELECT COUNT(DISTINCT album_id) FROM user_op_album WHERE uid=#uid#
+      	AND last_time &gt; #passDate#
+      	AND last_time &lt; #nowTime#
+      </select>
+      <update id="updateUserCountInfo" parameterClass="java.util.HashMap">
+      	UPDATE user SET last_song_id=#songId#,recent_album_count=#recentAlbumCount#,last_song_play_time=unix_timestamp() 
+      	WHERE uid=#uid#
+      </update>
+      
+      <select id="getAlbumUdataCountByAlbumId" parameterClass="java.lang.Long" resultClass="java.lang.Integer">
+      	SELECT count(album_id) FROM album_udata WHERE album_id=#albumId# limit 1;
+      </select>
+      
+      <insert id="addAlbumUdata" parameterClass="java.util.HashMap">
+      	 INSERT INTO album_udata(album_id,user_times,last_op_type,last_play_time) VALUES(#albumId#,#userCount#,#opType#,unix_timestamp())
+      </insert>
+      
+      <update id="updateAlbumUdata" parameterClass="java.util.HashMap">
+      	 UPDATE album_udata SET last_play_time=unix_timestamp(),user_times=#userCount#,last_op_type=#opType# WHERE album_id=#albumId#
+      </update>
+      
+      <select id="getSongUriListBySongId" parameterClass="SongUriListInfo" resultMap="SongUri">
+      	SELECT * FROM song_uri WHERE song_id=#songid# LIMIT #pagecount#
+      </select>
+      
+      <select id="getArtistPicsByArtistId" parameterClass="java.lang.Long" resultMap="artistPic">
+      		SELECT * FROM artist_pic WHERE artist_id=#artistId#
+      </select>
+      
+       <select id="getArtistPicsByArtistList" parameterClass="java.util.List" resultMap="artistPic">
+       		SELECT * FROM artist_pic AS ap JOIN artist AS a ON ap.artist_id=a.artist_id
+       		WHERE a.default_pic_id=ap.artist_pic_id
+       		AND a.artist_id IN
+       		<iterate close=")" conjunction="," open="(">
+       			#artistIdList[]#
+       		</iterate>
+       </select>
+             
+       <select id="getAlbumPicsByAlbumIdList" parameterClass="java.util.List" resultMap="albumPic">
+       		SELECT * FROM album_pic AS ap JOIN album AS al ON ap.album_id=al.album_id
+       		WHERE al.default_pic_id=ap.album_pic_id
+       		AND al.album_id IN 
+       		<iterate close=")" conjunction="," open="(">
+       			#albumIdList[]#
+       		</iterate>
+       </select>
+       
+       <select id="getSongFileById" parameterClass="java.util.Map" resultMap="songFile">
+       		SELECT * FROM song_file 
+       		WHERE song_id=#songid# AND rate=#rate# LIMIT 1;
+       </select>
+
+	  
+	  <select id="getAlbumListArtistIdNoPage" parameterClass="GetAlbumsOfArtistInfo" resultMap="albumInfo">
+            SELECT  
+            al.album_title,
+            al.album_id,
+            al.artist_name,
+            al.artist_id,
+	        al.album_publish_time,
+	        al.published_songs
+	        <isEqual prepend="," compareValue="1" property="albumartflag">
+		    al.album_thumb_uri
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="albumartflag">
+		    null AS album_thumb_uri
+		   </isNotEqual>
+		   <isEqual prepend="," compareValue="1" property="bioflag">
+		    al.album_bio
+		    </isEqual>
+		    <isNotEqual prepend="," compareValue="1" property="bioflag">
+		    null AS album_bio
+		   </isNotEqual>
+			FROM album AS al
+			JOIN artist_mp_album AS ama ON ama.album_id=al.album_id
+			JOIN artist AS a ON a.artist_id=ama.artist_id
+			WHERE (al.status=1 OR al.status=6 OR al.status=0)
+			AND a.artist_id=#artistid#
+			GROUP BY al.album_id
+        </select>
+        
+        
+    <select id="getUnDownloadSongList" parameterClass="java.util.List" resultClass="com.kascend.music2.api3.entity.Song">
+		SELECT song_id as songId,song_properties as songProperties FROM song WHERE is_upload=0 
+		AND uri_status=1
+		AND song_id IN
+		<iterate close=")" open="(" conjunction="," >
+				#songIdList[]#
+		</iterate>
+	</select>
+	
+	<insert id="saveSongDownloadLinkList" parameterClass="java.util.HashMap">
+		INSERT INTO up_predown_song(song_id,prior,create_time) VALUES(#songId#,#prior#,SYSDATE())
+		<selectKey resultClass="java.lang.Integer" >
+  			SELECT LAST_INSERT_ID() AS id
+  		</selectKey>
+	</insert>
+	<update id="updateSongDownloadLinkList" parameterClass="java.util.HashMap">
+		UPDATE up_predown_song SET prior=#prior# WHERE song_id=#songId#
+	</update>
+	<update id="updateSongProperties" parameterClass="java.util.HashMap">
+		UPDATE song SET song_properties=#songProperties#,update_time=SYSDATE()
+		WHERE song_id=#songId#
+	</update>
+	
+	<select id="getSongListOfAlbumBySongId" parameterClass="java.util.List" resultClass="java.lang.Long">
+		select distinct s1.song_id from song as s1
+	    join song s2 on s1.album_id=s2.album_id
+        where s2.album_id >0
+        and s2.song_id in
+        <iterate close=")" open="(" conjunction="," >
+			#songIdList[]#
+		</iterate>
+	</select>
+	
+	<select id="checkSongBySongIdAndArtistName" parameterClass="java.util.HashMap" resultClass="java.lang.Integer">
+		SELECT COUNT(song_id) FROM song WHERE song_id=#songId# AND artist_name=#artistName#
+	</select>
+  </sqlMap>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+	
+	   <bean id="sonocache" class="com.kascend.music2.api3.service.social.impl.SocialServiceImpl"
+		 scope="singleton">
+		  
+			 <property name="sosHelper">
+				<ref bean="sosHelper" />
+			 </property>
+			 <property name="socialLogService">
+				<ref bean="socialLogService" />
+			 </property>
+		</bean>
+	    <bean id="so" class="com.kascend.music2.api3.service.social.impl.CacheSocialServiceImpl"
+		 scope="singleton">
+		  
+			 <property name="sosHelper">
+				<ref bean="sosHelper" />
+			 </property>
+			 <property name="socialLogService">
+				<ref bean="socialLogService" />
+			 </property>
+			 <property name="cacheService">
+				<ref bean="socialCacheService" />
+			 </property>
+		</bean>
+	<bean id="socialCacheService" class="com.kascend.music2.api3.cache.OsCacheService"
+		 scope="singleton">
+		<property name="osCache">
+				<ref bean="osCache" />
+		</property>
+		
+		<property name="refreshPeriod">
+				<value>5</value>
+		</property>
+	</bean>
+	<bean id="socialLogService" class="com.kascend.music2.api3.service.log.SocialLogService"
+		parent="baseService" scope="singleton">
+		<property name="logCommitExecutor">
+			<ref bean="logCommitExecutor" />
+		</property>
+	</bean>
+		
+	<bean id="sosHelper" class="com.kascend.music2.api3.service.social.impl.SocialServiceHelper"  scope="singleton">
+		<property name="socialDao">
+			<ref bean="socialDao" />
+		</property>
+		<property name="metadataDao" ref="metadataDao"/>
+		<property name="mmsHelper">
+				<ref bean="mmsHelper" />
+		</property>
+		<property name="auth">
+			<ref bean="auth" />
+		</property>
+		
+		<property name="recommendService">
+			<ref bean="recommendService" />
+		</property>
+		
+	</bean>
+	
+	<bean id="socialDao" class="com.kascend.music2.api3.dao.SocialDao"  scope="singleton">
+			<property name="dao" ref="dao"/>
+	</bean>
+	
+	<bean id="recommendService" class="com.kascend.music2.recommend.sdk.service.impl.RecommendServiceImpl">
+		<property name="serviceUrl">
+			<value>${userRecommend.serviceUrl}</value>
+		</property>
+	</bean>
+</beans>
